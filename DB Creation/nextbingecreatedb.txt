@@ -1,0 +1,43 @@
+CREATE DATABASE nextbinge;
+USE DATABASE nextbinge;
+CREATE TABLE actor (
+actor_id VARCHAR(6) PRIMARY KEY CHECK(actor_id LIKE 'A%'),
+name VARCHAR(30),
+age INT,
+dob DATE,
+dod DATE,
+CHECK(dob < dod));
+CREATE TABLE director (
+director_id VARCHAR(6) PRIMARY KEY CHECK(director_id LIKE 'D%'),
+name VARCHAR(30),
+age INT,
+dob DATE,
+dod DATE,
+CHECK(dob < dod));
+CREATE TABLE production_house (
+production_id VARCHAR(6) PRIMARY KEY CHECK(production_id LIKE 'P%'),
+name VARCHAR(30));
+CREATE TABLE cast (
+cast_id VARCHAR(6) PRIMARY KEY CHECK(cast_id LIKE 'C%'),
+actor_id VARCHAR(6),
+director_id VARCHAR(6),
+production_id VARCHAR(6),
+FOREIGN KEY(actor_id) REFERENCES actor(actor_id),
+FOREIGN KEY(director_id) REFERENCES director(director_id),
+FOREIGN KEY(production_id) REFERENCES production_house(production_id));
+CREATE TABLE movie (
+movie_id VARCHAR(6) CHECK(movie_id LIKE 'M%'),
+cast_id VARCHAR(6),
+movie_name VARCHAR(50),
+FOREIGN KEY (`cast_id`) REFERENCES `cast`(`cast_id`),
+PRIMARY KEY (movie_id, cast_id));
+CREATE TABLE details (
+movie_id VARCHAR(6),
+genre VARCHAR(20),
+description VARCHAR(200),
+duration INT,
+release_date DATE,
+total_episodes INT,
+rating DECIMAL(2, 1),
+CHECK (rating > 0 AND rating <= 10),
+FOREIGN KEY (movie_id) REFERENCES movie(movie_id));
