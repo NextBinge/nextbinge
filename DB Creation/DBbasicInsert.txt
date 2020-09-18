@@ -1,0 +1,55 @@
+INSERT INTO actor VALUES
+('A00001', 'Robert Downey Jr.', 55, '1965-04-04', NULL),
+('A00002', 'Chris Evans', 39, '1981-06-13', NULL),
+('A00003', 'Mark Ruffalo', 52, '1967-11-22', NULL),
+('A00004', 'Scarlett Johansson', 35, '1984-11-22', NULL),
+('A00005', 'Chris Pratt', 41, '1979-06-21', NULL),
+('A00006', 'Christian Bale', 46, '1974-01-30', NULL),
+('A00007', 'Heath Ledger', 28, '1979-04-04', '2008-01-22'),
+('A00008', 'Morgan Freeman', 83, '1937-06-01', NULL),
+('A00009', 'Tom Hardy', 43, '1977-09-15', NULL),
+('A00010', 'Anne Hathaway', 37, '1982-11-12', NULL);
+
+
+INSERT INTO production_house VALUES
+('P00001', 'Warner Bros.'),
+('P00002', 'Marvel Studios');
+
+INSERT INTO director VALUES
+('D00001', 'Christopher Nolan', 50, '1970-07-30', NULL),
+('D00002', 'Anthony Russo', 50, '1970-02-01', NULL),
+('D00003', 'Joe Russo', 49, '1971-07-18', NULL);
+
+
+INSERT INTO cast VALUES
+('C00001', 'A00001', 'D00002', 'P00002'),
+('C00002', 'A00002', 'D00002', 'P00002'),
+('C00003', 'A00003', 'D00002', 'P00002'),
+('C00004', 'A00004', 'D00002', 'P00002'),
+('C00005', 'A00005', 'D00002', 'P00002'),
+('C00006', 'A00006', 'D00001', 'P00001'),
+('C00007', 'A00007', 'D00001', 'P00001'),
+('C00008', 'A00008', 'D00001', 'P00001'),
+('C00009', 'A00009', 'D00001', 'P00001'),
+('C00010', 'A00010', 'D00001', 'P00001');
+
+INSERT INTO movie VALUES
+('M00001', 'C00001', 'Avengers'),
+('M00001', 'C00002', 'Avengers'),
+('M00001', 'C00003', 'Avengers'),
+('M00001', 'C00004', 'Avengers'),
+('M00001', 'C00005', 'Avengers'),
+('M00002', 'C00006', 'Dark Knight'),
+('M00002', 'C00007', 'Dark Knight'),
+('M00002', 'C00008', 'Dark Knight'),
+('M00002', 'C00009', 'Dark Knight'),
+('M00002', 'C00010', 'Dark Knight');
+
+INSERT INTO details VALUES
+('M00001', 'Action', 'With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.', 182, '2019-04-26', NULL, 8.4),
+('M00002', 'Action', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.', 152, '2008-07-18', NULL, 8.8);
+
+
+
+
+

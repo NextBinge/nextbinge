@@ -1,5 +1,5 @@
 CREATE DATABASE nextbinge;
-USE DATABASE nextbinge;
+USE nextbinge;
 CREATE TABLE actor (
 actor_id VARCHAR(6) PRIMARY KEY CHECK(actor_id LIKE 'A%'),
 name VARCHAR(30),
