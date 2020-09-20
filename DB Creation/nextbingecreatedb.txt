@@ -1,38 +1,39 @@
+DROP DATABASE nextbinge;
 CREATE DATABASE nextbinge;
 USE nextbinge;
 CREATE TABLE actor (
-actor_id VARCHAR(6) PRIMARY KEY CHECK(actor_id LIKE 'A%'),
+actor_id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),
 age INT,
 dob DATE,
 dod DATE,
 CHECK(dob < dod));
 CREATE TABLE director (
-director_id VARCHAR(6) PRIMARY KEY CHECK(director_id LIKE 'D%'),
+director_id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),
 age INT,
 dob DATE,
 dod DATE,
 CHECK(dob < dod));
 CREATE TABLE production_house (
-production_id VARCHAR(6) PRIMARY KEY CHECK(production_id LIKE 'P%'),
+production_id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30));
 CREATE TABLE cast (
-cast_id VARCHAR(6) PRIMARY KEY CHECK(cast_id LIKE 'C%'),
-actor_id VARCHAR(6),
-director_id VARCHAR(6),
-production_id VARCHAR(6),
+cast_id INT AUTO_INCREMENT PRIMARY KEY,
+actor_id INT,
+director_id INT,
+production_id INT,
 FOREIGN KEY(actor_id) REFERENCES actor(actor_id),
 FOREIGN KEY(director_id) REFERENCES director(director_id),
 FOREIGN KEY(production_id) REFERENCES production_house(production_id));
 CREATE TABLE movie (
-movie_id VARCHAR(6) CHECK(movie_id LIKE 'M%'),
-cast_id VARCHAR(6),
+movie_id INT ,
+cast_id INT,
 movie_name VARCHAR(50),
-FOREIGN KEY (`cast_id`) REFERENCES `cast`(`cast_id`),
+FOREIGN KEY (cast_id) REFERENCES `cast`(cast_id),
 PRIMARY KEY (movie_id, cast_id));
 CREATE TABLE details (
-movie_id VARCHAR(6),
+movie_id INT,
 genre VARCHAR(20),
 description VARCHAR(200),
 duration INT,
