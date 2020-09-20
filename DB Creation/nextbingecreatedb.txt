@@ -1,3 +1,4 @@
+DROP DATABASE nextbinge;
 CREATE DATABASE nextbinge;
 USE nextbinge;
 CREATE TABLE actor (
@@ -26,10 +27,10 @@ FOREIGN KEY(actor_id) REFERENCES actor(actor_id),
 FOREIGN KEY(director_id) REFERENCES director(director_id),
 FOREIGN KEY(production_id) REFERENCES production_house(production_id));
 CREATE TABLE movie (
-movie_id INT AUTO_INCREMENT,
+movie_id INT ,
 cast_id INT,
 movie_name VARCHAR(50),
-FOREIGN KEY (`cast_id`) REFERENCES `cast`(`cast_id`),
+FOREIGN KEY (cast_id) REFERENCES `cast`(cast_id),
 PRIMARY KEY (movie_id, cast_id));
 CREATE TABLE details (
 movie_id INT,
