@@ -2,24 +2,18 @@ DROP DATABASE nextbinge;
 CREATE DATABASE nextbinge;
 USE nextbinge;
 CREATE TABLE actor (
-actor_id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(30),
-age INT,
-dob DATE,
-dod DATE,
-CHECK(dob < dod));
+actor_id INT PRIMARY KEY,
+name VARCHAR(100),
+gender INT);
 CREATE TABLE director (
-director_id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(30),
-age INT,
-dob DATE,
-dod DATE,
-CHECK(dob < dod));
+director_id INT PRIMARY KEY,
+name VARCHAR(100),
+gender INT);
 CREATE TABLE production_house (
-production_id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(30));
+production_id INT PRIMARY KEY,
+name VARCHAR(100));
 CREATE TABLE cast (
-cast_id INT AUTO_INCREMENT PRIMARY KEY,
+cast_id INT PRIMARY KEY,
 actor_id INT,
 director_id INT,
 production_id INT,
@@ -27,18 +21,29 @@ FOREIGN KEY(actor_id) REFERENCES actor(actor_id),
 FOREIGN KEY(director_id) REFERENCES director(director_id),
 FOREIGN KEY(production_id) REFERENCES production_house(production_id));
 CREATE TABLE movie (
-movie_id INT ,
+movie_id INT,
 cast_id INT,
-movie_name VARCHAR(50),
+movie_name VARCHAR(100),
 FOREIGN KEY (cast_id) REFERENCES `cast`(cast_id),
 PRIMARY KEY (movie_id, cast_id));
 CREATE TABLE details (
 movie_id INT,
-genre VARCHAR(20),
-description VARCHAR(200),
-duration INT,
+genre VARCHAR(100),
+description VARCHAR(1000),
+runtime INT,
 release_date DATE,
-total_episodes INT,
-rating DECIMAL(2, 1),
-CHECK (rating > 0 AND rating <= 10),
+popularity DECIMAL(8, 5),
+vote_average DECIMAL(2, 1),
+vote_count INT,
 FOREIGN KEY (movie_id) REFERENCES movie(movie_id));
+CREATE TABLE movie_character (
+`movie_id` INT,
+`actor_id` INT,
+`char_name` VARCHAR(300)
+);
+ALTER TABLE movie_character
+ADD CONSTRAINT moviechar
+FOREIGN KEY (`movie_id`) REFERENCES `movie`(`movie_id`);
+ALTER TABLE movie_character
+ADD CONSTRAINT actorchar
+FOREIGN KEY (`actor_id`) REFERENCES `actor`(`actor_id`);
