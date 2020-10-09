@@ -5,3 +5,6 @@ from . import sqlqueries
 def toprated_view(request):
     context = {'movies': sqlqueries.toprated()}
     return render(request, "searchbase.html", context)
+
+def index(request):
+    return render(request, 'index.html')

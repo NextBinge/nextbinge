@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from .views import toprated_view
+from moviedb import views
 
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
-    path('toprated/', toprated_view),
+    path('toprated/', views.toprated_view, name='toprated'),
 ]

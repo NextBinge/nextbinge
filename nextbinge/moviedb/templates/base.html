@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static "index.css" %}">
+    <title>Base Page</title>
+</head>
+<body style="background-color: black; color: white ;">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top" style="text-align: center;">
+        
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Most Popular Movies</a>
+            <a href="{% url 'toprated' %}">Top Rated</a>
+            <a href="#">Top 50 of all time</a>
+            <a href="#">Recently Added</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
+
+        <a class="navbar-brand mx-auto" href='{% url 'index' %}' style="font-size: 35px;">NextBinge</a>
+
+
+        <form class="form-inline" style="float: right;">
+            <input class="form-control" type="search" placeholder="Search Movies" aria-label="Search">
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    
+    <script src="{% static "main.js" %}"></script>
+</body>
+
+
+</html>

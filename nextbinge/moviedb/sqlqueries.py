@@ -6,6 +6,6 @@ def toprated():
                         where movie.movie_id in (
                         select details.movie_id from details
                         where vote_average>7.5);''')
-        res = cursor.fetchall()
+        res = [x[0] for x in cursor.fetchall()]
         return res
 
