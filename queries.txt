@@ -1,0 +1,66 @@
+SEARCH BY GENRES-MOVIE NAME:
+
+by join:
+
+select distinct(m.movie_name) from movie as m
+natural join details as d
+where FIND_IN_SET("THE GENRE",genre)>0;
+
+by subquery:
+
+select distinct(movie_name) from movie
+where movie.movie_id in (
+select details.movie_id from details
+where FIND_IN_SET("HORROR",genre)>0);
+
+SEARCH BY RATING(top rated)-MOVIE NAME:
+
+by subquery:
+
+select distinct(movie_name) from movie
+where movie.movie_id in (
+select details.movie_id from details
+where vote_average>7.5);  
+
+SEARCH BY RECENT(date sort)-MOVIE NAME:
+
+by join:
+
+select distinct(m.movie_name) from movie as m
+natural join details as d
+order by d.release_date desc;
+
+SEARCH BY Popularity-MOVIE NAME:
+
+by join:
+
+select distinct(m.movie_name) from movie as m
+natural join details as d
+order by d.popularity desc;
+
+SEARCH BY ACTOR-MOVIE NAME:
+
+by join:
+
+select DISTINCT(m.movie_name), a.name from actor as a
+natural join cast
+natural join movie as m 
+where INSTR(a.name,"enter name")>0 ORDER BY a.name;
+
+SEARCH BY MOVIE NAME-details
+
+select * from details
+where details.movie_id in (
+select movie.movie_id from movie
+where movie_name='input');
+
+SEARCH BY MOVIE NAME-actor and char name
+
+select DISTINCT(m.movie_name), a.name, ch.char_name from movie_character as ch
+natural join movie as m
+natural join actor as a
+where INSTR(m.movie_name,"MOVIE NAME ENTERED")>0
+order by m.movie_name;
+
+
+
