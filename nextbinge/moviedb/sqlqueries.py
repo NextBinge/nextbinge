@@ -9,3 +9,19 @@ def toprated():
         res = [x[0] for x in cursor.fetchall()]
         return res
 
+def mostpopular():
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name) from movie as m
+                        natural join details as d
+                        order by d.popularity desc;''')
+        res = [x[0] for x in cursor.fetchall()]
+        return res
+
+def recent():
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name) from movie as m
+                        natural join details as d
+                        order by d.release_date desc;
+                        ''')
+        res = [x[0] for x in cursor.fetchall()]
+        return res

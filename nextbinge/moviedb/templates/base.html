@@ -16,10 +16,10 @@
         
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Most Popular Movies</a>
+            <a href="{% url 'mostpopular' %}">Most Popular Movies</a>
             <a href="{% url 'toprated' %}">Top Rated</a>
-            <a href="#">Top 50 of all time</a>
-            <a href="#">Recently Added</a>
+            <a href="">Top 50 of all time</a>
+            <a href="{% url 'recent' %}">Recently Added</a>
         </div>
         <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
 
