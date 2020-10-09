@@ -17,3 +17,6 @@ def recent_view(request):
     context = {'recent_movies': sqlqueries.recent()}
     return render(request, "searchbase.html", context)
 
+def top50_view(request):
+    context = {'top50_movies': sqlqueries.top50()}
+    return render(request, "searchbase.html", context)

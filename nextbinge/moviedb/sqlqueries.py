@@ -25,3 +25,10 @@ def recent():
                         ''')
         res = [x[0] for x in cursor.fetchall()]
         return res
+
+def top50():
+    with connection.cursor() as cursor:
+        cursor.execute('''
+                        ''')
+        res = [x[0] for x in cursor.fetchall()]
+        return res
