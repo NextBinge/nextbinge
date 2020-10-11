@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+    <div>
+
+        <div class="w3-card-4">
+            <img src={{img}} class="w3-round" alt="..." >
+        </div>
+
+        <div class=>
+            title:"name"
+            descr:"descp"
+        </div>
+
+    </div>
+
+    {% for var in act_descp%}
+
+        <div class="gallery">
+            <p>var.aname</p> 
+            <p>as</p>
+            <p>var.cname</p>
+        </div>
+
+    {% endfor %}
 {% endblock content %}
