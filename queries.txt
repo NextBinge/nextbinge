@@ -54,13 +54,22 @@ where details.movie_id in (
 select movie.movie_id from movie
 where movie_name='input');
 
+SEARCH BY MOVIE NAME-actor
+
+select distinct(a.name) from actor as a
+natural join cast as c
+natural join movie as m
+where m.movie_name="interstellar";
+
 SEARCH BY MOVIE NAME-actor and char name
 
-select DISTINCT(m.movie_name), a.name, ch.char_name from movie_character as ch
+select DISTINCt(a.name), ch.char_name from movie_character as ch
 natural join movie as m
 natural join actor as a
-where INSTR(m.movie_name,"MOVIE NAME ENTERED")>0
-order by m.movie_name;
+where m.movie_name="interstellar";
 
+SEARCH BY MOVIE NAME- description
 
-
+select distinct(d.description) from details as d
+natural join movie as m
+where m.movie_name="interstellar";

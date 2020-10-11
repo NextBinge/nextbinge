@@ -27,9 +27,20 @@ def recent():
         res = [x[0] for x in cursor.fetchall()]
         return res
 
-def top50():
+def actor_descp(mov_name):
     with connection.cursor() as cursor:
-        cursor.execute('''
-                        ''')
-        res = [x[0] for x in cursor.fetchall()]
+        cursor.execute('''select DISTINCt(a.name), ch.char_name from movie_character as ch
+                        natural join movie as m
+                        natural join actor as a
+                        where m.movie_name=%s''',[mov_name])
+        res = [{'aname':x[0],'cname':x[1]} for x in cursor.fetchall()]
         return res
+
+def movie_descp(mov_name):
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(d.description) from details as d
+                        natural join movie as m
+                        where m.movie_name=%s''',[mov_name])
+        res = [{'descp':x} for x in cursor.fetchall()]
+        return res
+

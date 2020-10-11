@@ -8,5 +8,4 @@ urlpatterns = [
     path('toprated/', views.toprated_view, name='toprated'),
     path('mostpopular/', views.mostpopular_view, name='mostpopular'),
     path('recent/', views.recent_view, name='recent'),
-    path('top50/', views.top50_view, name='top50'),
 ]

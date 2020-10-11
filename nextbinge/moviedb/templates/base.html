@@ -9,7 +9,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Base Page</title>
+    <style>
+        div.gallery {
+          margin: 5px;
+          border: 1px solid #ccc;
+          float: left;
+          width: 180px;
+        }
+        div.desc {
+            padding: 15px;
+            text-align: center;
+            text-transform: initial;
+        }
+    </style>
 </head>
 <body style="background-color: black; color: white ;">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top" style="text-align: center;">
@@ -18,7 +32,6 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="{% url 'mostpopular' %}">Most Popular Movies</a>
             <a href="{% url 'toprated' %}">Top Rated</a>
-            <a href="{% url 'top50' %}">Top 50 of all time</a>
             <a href="{% url 'recent' %}">Recently Added</a>
         </div>
         <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
