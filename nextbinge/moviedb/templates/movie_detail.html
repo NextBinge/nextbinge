@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
+    <br>
 
-        <div class="w3-card-4">
-            <img src={{img}} class="w3-round" alt="..." >
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="card-img-top" src="{{img}}" alt="...">
+            </div>
+            <div class="col">
+                <h1 align=center style="text-transform: capitalize;">{{name}}</h1>
+                <br><br>
+                <h3 align=justify>{{description}}</h3>
+            </div>
         </div>
-
-        <div class=>
-            title:"name"
-            descr:"descp"
-        </div>
-
     </div>
 
-    {% for var in act_descp%}
+    <br><br>
+    <h2 align=left style="text-transform: initial;"> cast members</h2>
+    <br>
+
+    {% for var in act_descp %}
 
         <div class="gallery">
-            <p>var.aname</p> 
-            <p>as</p>
-            <p>var.cname</p>
+            <div class="desc"><h3>{{var.aname}}</h3></div>
+            <div class="desc"><h5>as</h5></div>
+            <div class="desc"><h3>{{var.cname}}</h3></div>
         </div>
 
     {% endfor %}

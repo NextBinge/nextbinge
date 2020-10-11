@@ -22,6 +22,6 @@ def movie_view(request, movie_name):
     context = {'act_descp' : sqlqueries.actor_name(movie_name),
             'name' : movie_name,
             'img' : poster.getImage(movie_name),
-            'desc' : sqlqueries.movie_descp(movie_name),
+            'description' : sqlqueries.movie_descp(movie_name),
     }
     return render(request, "movie_detail.html", context)
