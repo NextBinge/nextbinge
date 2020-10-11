@@ -18,8 +18,9 @@ def recent_view(request):
     context = {'recent_movies': sqlqueries.recent()}
     return render(request, "searchbase.html", context)
 
-def movie_view(request, movie_name):
-    context = {'act_descp' : sqlqueries.actor_name(movie_name),
+def movie_view(request, movie_id):
+    movie_name = sqlqueries.getname(movie_id)
+    context = {'act_descp' : sqlqueries.actor_descp(movie_name),
             'name' : movie_name,
             'img' : poster.getImage(movie_name),
             'description' : sqlqueries.movie_descp(movie_name),

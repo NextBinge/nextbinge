@@ -10,11 +10,11 @@
       <div class="card mb-3" style="max-width: 540px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img id="{{movie|removespecial}}" src='' class="card-img" alt="...">
+          <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'movie' movie %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
+            <h5 class="card-title"><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
@@ -29,11 +29,11 @@
       <div class="card mb-3" style="max-width: 540px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img id="{{movie|removespecial}}" src='' class="card-img" alt="...">
+          <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" ><a href="{% url 'movie' movie %}" id="{{forloop.counter}}">{{movie}}</a></h5>
+            <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
@@ -49,11 +49,11 @@
       <div class="card mb-3" style="max-width: 540px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img id="{{movie|removespecial}}" src='' class="card-img" alt="...">
+          <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" ><a href="{% url 'movie' movie %}" id="{{forloop.counter}}">{{movie}}</a></h5>
+            <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
