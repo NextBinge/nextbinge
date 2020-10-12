@@ -25,6 +25,8 @@ def movie_view(request, movie_id):
             'name' : movie_name,
             'img' : poster.getImage(movie_name),
             'description' : sqlqueries.movie_descp(movie_name),
+            'director' : sqlqueries.getname(movie_name),
+            'production_house' : sqlqueries.getname(movie_name),
     }
     return render(request, "movie_detail.html", context)
 
@@ -39,3 +41,10 @@ def surpriseme(request):
     # }
     context = {'movieid': movies[movieid]}
     return render(request, "buffer.html", context)
+def actor_view(request, actor_id):
+    actor_name = sqlqueries.getnameactor(actor_id)
+    context = {
+        'act_desc' : sqlqueries.actor_movies(actor_name),
+        'name' : actor_name,
+    }
+    return render(request, "searchbase.html", context)

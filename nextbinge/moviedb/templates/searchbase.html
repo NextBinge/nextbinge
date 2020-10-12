@@ -16,8 +16,8 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title"><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">runtime: {{movie.time}} mins</p>
+            <p class="card-text">release date : {{movie.date}} mins</p>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
     <ul>
       {% for movie in most_popular_movies %}
       <div class="gallery">
-      <div class="card mb-3" style="max-width: 540px; height: 300px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
@@ -36,8 +36,8 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">runtime: {{movie.time}} mins</p>
+            <p class="card-text">release date : {{movie.date}} mins</p>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
     <ul>
       {% for movie in recent_movies %}
       <div class="gallery">
-      <div class="card mb-3" style="max-width: 540px; height: 300px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
@@ -57,15 +57,36 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">runtime: {{movie.time}} mins</p>
+            <p class="card-text">release date : {{movie.date}} mins</p>
           </div>
         </div>
       </div>
     </div></div>
       {% endfor %}
   </ul>
-    
+  {% elif act_desc %}
+  <h1 id="{{act_desc|length}}" class="title">{{name}}</h1>
+  <ul>
+    {% for actor in act_desc %}
+    <div class="gallery">
+    <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img id="{{actor.mname|removespecial}}" src='' class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" ><a href="{% url 'movie' actor.mid %}" id="{{forloop.counter}}">{{actor.mname}}</a></h5>
+          <p class="card-text">runtime: {{actor.time}} mins</p>
+            <p class="card-text">release date : {{actor.date}} mins</p>
+        </div>
+      </div>
+    </div>
+  </div></div>
+    {% endfor %}
+</ul>
+
 {% endif %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'searchbase.js' %}"></script>

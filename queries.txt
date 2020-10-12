@@ -22,11 +22,17 @@ where movie.movie_id in (
 select details.movie_id from details
 where vote_average>7.5);  
 
+by join:
+
+select distinct(m.movie_name), m.movie_id, d.release_date, d.runtime from movie as m
+natural join details as d
+where d.vote_average>7.5; 
+
 SEARCH BY RECENT(date sort)-MOVIE NAME:
 
 by join:
 
-select distinct(m.movie_name) from movie as m
+select distinct(m.movie_name), d.release_date, d.runtime from movie as m
 natural join details as d
 order by d.release_date desc;
 
@@ -61,9 +67,23 @@ natural join cast as c
 natural join movie as m
 where m.movie_name="interstellar";
 
+SEARCH BY MOVIE NAME-director
+
+select distinct(d.name) from director as d
+natural join cast as c
+natural join movie as m
+where m.movie_id=;
+
+SEARCH BY MOVIE NAME-productionhouse
+
+select distinct(p.name) from production_house as p
+natural join cast as c
+natural join movie as m
+where m.movie_id=;
+
 SEARCH BY MOVIE NAME-actor and char name
 
-select DISTINCt(a.name), ch.char_name from movie_character as ch
+select DISTINCt(a.name),a.actor_id, ch.char_name from movie_character as ch
 natural join movie as m
 natural join actor as a
 where m.movie_name="interstellar";
@@ -73,3 +93,21 @@ SEARCH BY MOVIE NAME- description
 select distinct(d.description) from details as d
 natural join movie as m
 where m.movie_name="interstellar";
+
+SEARCH BY MOVIE id- movie name
+
+select distinct(movie_name) from movie
+where movie.movie_id = 
+
+SEARCH BY actor id- actor name
+
+select name from actor
+where actor_id =
+
+SEARCH BY actor name- actor char movie movie id
+
+select DISTINCt(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime from movie_character as ch
+natural join movie as m
+natural join actor as a
+natural join details as d
+where a.name="chris evans";
