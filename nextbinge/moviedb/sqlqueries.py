@@ -51,3 +51,8 @@ def movie_descp(mov_name):
         res = cursor.fetchall()[0][0]
         return res
 
+def getMovies():
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(movie_id) from movie''')
+        res = [x[0] for x in cursor.fetchall()]
+        return res
