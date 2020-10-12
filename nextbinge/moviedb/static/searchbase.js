@@ -1,7 +1,7 @@
 $(document).ready(() => {
     console.log($('.title').attr('id'));
-    var length = $('.title').attr('id');
-    for (let i = 0; i < length; i++) {
+    var length = $('.title').attr('id') - 1;
+    for (let i = 1; i <= length; i++) {
         let film = $("#"+i).text();
         if(film != "") {
             $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=7346d90da037566a43b6a0414c77ea40&query=" + film + "&callback=?", function(json) {

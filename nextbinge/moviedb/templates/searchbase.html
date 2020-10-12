@@ -5,9 +5,10 @@
 {% block content %}
 
 {% if top_rated_movies %}
-    <h1 id="{{top_rated_movies|length}}" align = center class="title">Top Rated</h1>
+    <h1 id="{{top_rated_movies|length|add:1}}" align = center class="title">Top Rated</h1>
       {% for movie in top_rated_movies %}
       <div class="gallery">
+      <a href="{% url 'movie' movie.id %}">
       <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
@@ -15,19 +16,20 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">runtime: {{movie.time}} mins</p>
-            <p class="card-text">release date : {{movie.date}} mins</p>
+            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <p class="card-text">Runtime: {{movie.time}} mins</p>
+            <p class="card-text">Release date: {{movie.date}}</p>
           </div>
         </div>
       </div>
-    </div></div>
+    </div></a></div>
       {% endfor %}
 {% elif most_popular_movies %}
-    <h1 id="{{most_popular_movies|length}}" class="title">Most Popular</h1>
+    <h1 id="{{most_popular_movies|length|add:1}}" class="title">Most Popular</h1>
     <ul>
       {% for movie in most_popular_movies %}
       <div class="gallery">
+        <a href="{% url 'movie' movie.id %}">
       <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
@@ -35,20 +37,21 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">runtime: {{movie.time}} mins</p>
-            <p class="card-text">release date : {{movie.date}} mins</p>
+            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <p class="card-text">Runtime: {{movie.time}} mins</p>
+            <p class="card-text">Release date : {{movie.date}}</p>
           </div>
         </div>
       </div>
-    </div></div>
+    </div></a></div>
       {% endfor %}
   </ul>
 {% elif recent_movies %}
-    <h1 id="{{recent_movies|length}}" class="title">Recently Added</h1>
+    <h1 id="{{recent_movies|length|add:1}}" class="title">Recently Added</h1>
     <ul>
       {% for movie in recent_movies %}
       <div class="gallery">
+        <a href="{% url 'movie' movie.id %}">
       <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
@@ -56,20 +59,21 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" ><a href="{% url 'movie' movie.id %}" id="{{forloop.counter}}">{{movie.name}}</a></h5>
-            <p class="card-text">runtime: {{movie.time}} mins</p>
-            <p class="card-text">release date : {{movie.date}} mins</p>
+            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <p class="card-text">Runtime: {{movie.time}} mins</p>
+            <p class="card-text">Release Date: {{movie.date}}</p>
           </div>
         </div>
       </div>
-    </div></div>
+    </div></a></div>
       {% endfor %}
   </ul>
   {% elif act_desc %}
-  <h1 id="{{act_desc|length}}" class="title">{{name}}</h1>
+  <h1 id="{{act_desc|length|add:1}}" class="title" align=center>{{name}}</h1>
   <ul>
     {% for actor in act_desc %}
     <div class="gallery">
+      <a href="{% url 'movie' actor.mid %}">
     <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
     <div class="row no-gutters">
       <div class="col-md-4">
@@ -77,13 +81,19 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
+<<<<<<< HEAD
           <h5 class="card-title" ><a href="{% url 'movie' actor.mid %}" id="{{forloop.counter}}">{{actor.mname}}</a></h5>
           <p class="card-text">runtime: {{actor.time}} mins</p>
             <p class="card-text">release date : {{actor.date}}</p>
+=======
+          <h5 class="card-title" id="{{forloop.counter}}">{{actor.mname}}</h5>
+          <p class="card-text">Runtime: {{actor.time}} mins</p>
+            <p class="card-text">Release date: {{actor.date}}</p>
+>>>>>>> 9dda55b332f6e64dd69d9ab1c3bdb6db0f484c8a
         </div>
       </div>
     </div>
-  </div></div>
+  </div></a></div>
     {% endfor %}
 </ul>
 

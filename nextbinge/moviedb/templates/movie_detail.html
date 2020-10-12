@@ -9,11 +9,12 @@
                 <img class="card-img-top" src="{{img}}" alt="...">
             </div>
             <div class="col">
-                <h1 align=center style="text-transform: capitalize;">{{name}}</h1>
+                <h1 align=center class="display-3" style="text-transform: capitalize; font-weight: bold;">{{name}}</h1>
                 <br><br>
                 <h3 align=justify>{{description}}</h3><br>
                 <div class="row">
                     <div class="col">
+<<<<<<< HEAD
                         <h3>director : </h3><br>
                     </div>
                     <div class="col">
@@ -32,21 +33,45 @@
                         {% endfor %}
                     </div>
                 </div>                
+=======
+                        <h3 style="font-weight: bold;">Director: </h3>
+                    </div>
+                    <div class="col">
+                        {% for dir in director %}
+                        <h3 style="text-transform: initial;">{{dir.name}}</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h3 style="font-weight: bold;">Production House: </h3>
+                    </div>
+                    <div class="col">
+                        {% for house in production_house %}
+                    <h3 style="text-transform: initial;">{{house.name}}</h3>
+                    {% endfor %}
+                    </div>
+                </div>
+
+                
+                <br>
+>>>>>>> 9dda55b332f6e64dd69d9ab1c3bdb6db0f484c8a
             </div>
         </div>
     </div>
 
     <br><br>
-    <h2 align=left style="text-transform: initial;"> cast members</h2>
+    <h1 align=center style="text-transform: initial;"> Cast Members</h1>
     <br>
 
     {% for var in act_descp %}
-
+    <a href="{% url 'actor' var.aid %}" id="{{forloop.counter}}">
         <div class="gall">
-            <div class="desc"><h2><a href="{% url 'actor' var.aid %}" id="{{forloop.counter}}">{{var.aname}}</a></h2></div>
+            <div class="desc" style="font-weight: bold;"><h2>{{var.aname}}</h2></div>
             <div class="desc"><h4>AS</h4></div>
             <div class="desc"><h2>{{var.cname}}</h2></div>
         </div>
-
+    </a>
     {% endfor %}
 {% endblock content %}
