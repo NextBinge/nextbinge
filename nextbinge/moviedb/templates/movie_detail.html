@@ -12,14 +12,26 @@
                 <h1 align=center style="text-transform: capitalize;">{{name}}</h1>
                 <br><br>
                 <h3 align=justify>{{description}}</h3><br>
-                <h3>director : </h3><br>
-                {% for dir in director %}
-                <h3 style="text-transform: initial;">{{dir.name}}</h3>
-                {% endfor %}
-                <h3>production house : </h3><br>
-                {% for house in production_house %}
-                <h3 style="text-transform: initial;">{{house.name}}</h3>
-                {% endfor %}
+                <div class="row">
+                    <div class="col">
+                        <h3>director : </h3><br>
+                    </div>
+                    <div class="col">
+                        {% for dir in director %}
+                            <h3 style="text-transform: initial;">{{dir.name}}</h3>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>production house : </h3><br>
+                    </div>
+                    <div class="col">
+                        {% for house in production_house %}
+                            <h3 style="text-transform: initial;">{{house.name}}</h3>
+                        {% endfor %}
+                    </div>
+                </div>                
             </div>
         </div>
     </div>
