@@ -5,10 +5,10 @@
 {% block content %}
 
 {% if top_rated_movies %}
-    <h1 id="{{top_rated_movies|length}}" class="title">Top Rated</h1>
+    <h1 id="{{top_rated_movies|length}}" align = center class="title">Top Rated</h1>
       {% for movie in top_rated_movies %}
       <div class="gallery">
-      <div class="card mb-3" style="max-width: 540px; height: 300px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
