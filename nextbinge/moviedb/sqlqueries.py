@@ -80,11 +80,12 @@ def getMovies():
         cursor.execute('''select distinct(movie_id) from movie''')
         res = [x[0] for x in cursor.fetchall()]
         return res
+
 def actor_movies(act_name):
     with connection.cursor() as cursor:
         cursor.execute('''select DISTINCt(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime from movie_character as ch
                         natural join movie as m
                         natural join actor as a
-                        where a.name==%s''',[act_name])
+                        where a.name=%s''',[act_name])
         res = [{'mname':x[0],'mid':x[1],'cname':x[2],'date':x[3],'time':x[4]} for x in cursor.fetchall()]
         return res
