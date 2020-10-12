@@ -11,7 +11,15 @@
             <div class="col">
                 <h1 align=center style="text-transform: capitalize;">{{name}}</h1>
                 <br><br>
-                <h3 align=justify>{{description}}</h3>
+                <h3 align=justify>{{description}}</h3><br>
+                <h3>director : </h3><br>
+                {% for dir in director %}
+                <h3 style="text-transform: initial;">{{dir.name}}</h3>
+                {% endfor %}
+                <h3>production house : </h3><br>
+                {% for house in production_house %}
+                <h3 style="text-transform: initial;">{{house.name}}</h3>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -22,10 +30,10 @@
 
     {% for var in act_descp %}
 
-        <div class="gallery">
-            <div class="desc"><h3>{{var.aname}}</h3></div>
-            <div class="desc"><h5>as</h5></div>
-            <div class="desc"><h3>{{var.cname}}</h3></div>
+        <div class="gall">
+            <div class="desc"><h2><a href="{% url 'actor' var.aid %}" id="{{forloop.counter}}">{{var.aname}}</a></h2></div>
+            <div class="desc"><h4>AS</h4></div>
+            <div class="desc"><h2>{{var.cname}}</h2></div>
         </div>
 
     {% endfor %}
