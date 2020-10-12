@@ -26,7 +26,7 @@ def getnamedirector(id):
 
 def getnameprod(id):
     with connection.cursor() as cursor:
-        cursor.execute('''select distinct(d.name) from director as d
+        cursor.execute('''select distinct(p.name) from production_house as p
                         natural join cast as c
                         natural join movie as m
                         where m.movie_id = %s''', [id])
@@ -82,9 +82,11 @@ def getMovies():
         return res
 def actor_movies(act_name):
     with connection.cursor() as cursor:
-        cursor.execute('''select DISTINCt(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime from movie_character as ch
+        cursor.execute('''select DISTINCt(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime 
+                        from movie_character as ch
                         natural join movie as m
                         natural join actor as a
-                        where a.name==%s''',[act_name])
+                        natural join details as d
+                        where a.name=%s''',[act_name])
         res = [{'mname':x[0],'mid':x[1],'cname':x[2],'date':x[3],'time':x[4]} for x in cursor.fetchall()]
         return res

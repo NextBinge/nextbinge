@@ -25,22 +25,17 @@ def movie_view(request, movie_id):
             'name' : movie_name,
             'img' : poster.getImage(movie_name),
             'description' : sqlqueries.movie_descp(movie_name),
-            'director' : sqlqueries.getname(movie_name),
-            'production_house' : sqlqueries.getname(movie_name),
+            'director' : sqlqueries.getnamedirector(movie_id),
+            'production_house' : sqlqueries.getnameprod(movie_id),
     }
     return render(request, "movie_detail.html", context)
 
 def surpriseme(request):
     movies = sqlqueries.getMovies()
     movieid = random.randint(0, len(movies)-1)
-    # movie_name = sqlqueries.getname(movies[movieid])
-    # context = {'act_descp' : sqlqueries.actor_descp(movie_name),
-    #         'name' : movie_name,
-    #         'img' : poster.getImage(movie_name),
-    #         'description' : sqlqueries.movie_descp(movie_name),
-    # }
     context = {'movieid': movies[movieid]}
     return render(request, "buffer.html", context)
+    
 def actor_view(request, actor_id):
     actor_name = sqlqueries.getnameactor(actor_id)
     context = {
