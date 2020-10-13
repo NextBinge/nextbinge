@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.conf import settings
-from django.conf.urls.static import static
 from moviedb import views
 
 urlpatterns = [
@@ -27,5 +25,4 @@ urlpatterns = [
     path('surpriseme/', views.surpriseme, name='surpriseme'),
     path('actor/<int:actor_id>', views.actor_view, name='actor'),
     path('typeahead/', views.typeahead, name='typeahead'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-"""for importing images from file"""
+]
