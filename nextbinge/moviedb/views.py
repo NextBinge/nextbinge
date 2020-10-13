@@ -12,7 +12,8 @@ def toprated_view(request):
     return render(request, "searchbase.html", context)
 
 def index(request):
-    return render(request, 'index.html')
+    context = {'most_popular_movies': sqlqueries.mostpopular()}
+    return render(request, 'index.html', context)
 
 def mostpopular_view(request):
     context = {'most_popular_movies': sqlqueries.mostpopular()}
@@ -63,3 +64,6 @@ def search(request):
             return render(request, "buffer.html", context)
     else:
         return render(request, 'index.html')
+
+
+
