@@ -9,11 +9,11 @@
 
 <div class="page-content page-container" id="page-content" >
     <div class="padding">
-        <div class="row container-fluid">
+        <div class="row container-fluid" >
             <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card" style="border-color:black;">
+                <div class="card" style="border-color: black;">
                     <div class="card-body" style="background-color: black;">
-                        <div class="owl-carousel" >
+                        <div class="owl-carousel">
                         
                             {% for movie in most_popular_movies %}
                             <!-- <h5 id="{{forloop.counter}}">{{movie.name}}</h5> -->
@@ -52,6 +52,17 @@ items: 4
 
 });
 </script>
+<br>
+<h2 style="text-align:center; font-weight: bold; display: block;">GENRE</h2> 
+<br>
+
+<div class="gall1">
+    <div class="w3-card-4">
+        <div class="w3-display-container w3-text-white">
+          <img src="{% static 'images/horror genre backg.jpeg' %}" alt="HORROR" style="width:100%">
+          <div class="w3-xlarge w3-display-bottomleft w3-padding">HORROR</div>
+        </div>
+</div>
 
 <script src="{% static 'searchbase.js' %}"></script>
 
