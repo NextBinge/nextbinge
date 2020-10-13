@@ -1,49 +1,60 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="container" style="color: white;">
-    <h1>Check out the navbar!</h1>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+<link rel="stylesheet" href="{% static "mainpage.css" %}">
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container-fluid">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Basic carousel</h4>
+                        <div class="owl-carousel">
+                            <div class="item"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204140/banner_12.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204172/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204663/park-4174278_640.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204172/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204663/park-4174278_640.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                            <div class="item"> <img src="http://www.urbanui.com/fily/template/images/carousel/banner_2.jpg" alt="image" /> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container" style="color: white; background-color: gray;">
-    <div class="card-group">
-        <div class="card" style="border-color: red;">
-          <img class="card-img-top" style="opacity: 0.30;" src="" alt="Card image cap">
-          <div class="card-img-overlay">
-            <h1 class="card-title">Action</h1>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-outline-dark">Go to Action</a>
-           </div>
-        </div>
+<script>
+    $(document).ready(function() {
 
-        <div class="card">
-            <img class="card-img-top" style="opacity: 0.30;" src="" alt="Card image cap">
-          <div class="card-img-overlay">
-            <h1 class="card-title">Adventure</h1>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-outline-dark">Go to Adventure</a>
-          </div>
-        </div>
+$(".owl-carousel").owlCarousel({
 
-        <div class="card">
-            <img class="card-img-top" style="opacity: 0.30;" src="" alt="Card image cap">
-          <div class="card-img-overlay">
-            <h1 class="card-title">Thriller</h1>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-outline-dark">Go to Thriller</a>
-          </div>
-        </div>
-        
-        <div class="card">
-            <img class="card-img-top" style="opacity: 0.30;" src="" alt="Card image cap">
-            <div class="card-img-overlay">
-              <h1 class="card-title">Comedy</h1>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-outline-dark">Go to Comedy</a>
-          </div>
+autoPlay: 3000,
+items : 4,
+itemsDesktop : [1199,3],
+itemsDesktopSmall : [979,3],
+center: true,
+nav:true,
+loop:true,
+responsive: {
+600: {
+items: 4
+}
+}
 
-          </div>
-      </div>
-</div>
+});
+
+});
+</script>
+
+
 {% endblock content %}
 
