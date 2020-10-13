@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Base Page</title>
     <style>
@@ -50,17 +51,21 @@
         <a class="navbar-brand mx-auto" href='{% url 'index' %}' style="font-size: 35px;">NextBinge</a>
 
 
-        <form class="form-inline" style="float: right;">
-            <input class="form-control" type="search" placeholder="Search Movies" aria-label="Search">
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline" style="float: right;" action="http://127.0.0.1:8000/search/" method="POST">
+            {% csrf_token %}
+            <div id="prefetch" class="demo">
+                <input class="typeahead" type="text" placeholder="Search Movies..." name="searchvalue">
+              </div>
+            <!-- <input class="form-control" type="search" placeholder="Search Movies" aria-label="Search"> -->
+            <button class="btn my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
 
     {% block content %}
 
     {% endblock content %}
-
-    
+     <!-- Search Bar autocomplete plugin -->
+ <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
     <script src="{% static 'main.js' %}"></script>
 </body>
 

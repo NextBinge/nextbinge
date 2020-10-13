@@ -8,6 +8,13 @@ def getname(id):
         res = cursor.fetchall()[0][0]
         return res
 
+def getid(name):
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(movie_id) from movie
+                        where movie.movie_name = %s''', [name])
+        res = cursor.fetchall()[0][0]
+        return res
+
 def getnameactor(id):
     with connection.cursor() as cursor:
         cursor.execute('''select name from actor
@@ -31,6 +38,12 @@ def getnameprod(id):
                         natural join movie as m
                         where m.movie_id = %s''', [id])
         res = [{'name': x[0]} for x in cursor.fetchall()]
+        return res
+
+def getallmovienames():
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(movie_name) from movie''')
+        res = [x[0] for x in cursor.fetchall()]
         return res
 
 def toprated():

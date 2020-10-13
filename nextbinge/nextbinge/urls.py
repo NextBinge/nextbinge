@@ -24,5 +24,6 @@ urlpatterns = [
     path('movie/<int:movie_id>', views.movie_view, name='movie'),
     path('surpriseme/', views.surpriseme, name='surpriseme'),
     path('actor/<int:actor_id>', views.actor_view, name='actor'),
+    path('typeahead/', views.typeahead, name='typeahead'),
 ]
 
