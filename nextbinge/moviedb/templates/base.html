@@ -54,7 +54,7 @@
         <form class="form-inline" style="float: right;" action="http://127.0.0.1:8000/search/" method="POST">
             {% csrf_token %}
             <div id="prefetch" class="demo">
-                <input class="typeahead" type="text" placeholder="Search Movies..." name="searchvalue">
+                <input class="typeahead p-3" type="text" placeholder="Search Movies..." name="searchvalue" autocomplete="off">
               </div>
             <!-- <input class="form-control" type="search" placeholder="Search Movies" aria-label="Search"> -->
             <button class="btn my-2 my-sm-0" type="submit">Search</button>
