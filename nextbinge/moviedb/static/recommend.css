@@ -1,0 +1,142 @@
+.tt-menu {
+    text-align: left;
+  }
+  
+  .demo {
+      position: relative;
+      *z-index: 1;
+      /* margin: 50px 0; */
+    }
+    
+    .typeahead,
+    .tt-query,
+    .tt-hint {
+      width: 596px;
+      height: 50px;
+      padding: 8px 12px;
+      font-size: 22px;
+      line-height: 30px;
+      border: 2px solid black;
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      outline: none;
+    }
+    
+    .typeahead {
+      color: #fff;
+      background-color: rgb(34, 34, 34);
+    }
+    
+    .typeahead:focus {
+      border: 2px solid #0097cf;
+    }
+    
+    .tt-query {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+         -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+    
+    .tt-hint {
+      color: rgb(104, 103, 103)
+    }
+    
+    .tt-menu {
+      width: 622px;
+      margin: 12px 0;
+      padding: 8px 0;
+      background-color: rgb(44, 43, 43);
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+         -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+              box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+    
+    .tt-suggestion {
+      padding: 3px 20px;
+      font-size: 22px;
+      line-height: 24px;
+    }
+    
+    .tt-suggestion:hover {
+      cursor: pointer;
+      color: #fff;
+      background-color: #0097cf;
+    }
+    
+    .tt-suggestion.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+    
+    }
+    
+    .tt-suggestion p {
+      margin: 0;
+    }
+  
+    
+  .btn {
+      background-color:rgb(34, 34, 34);
+      border: solid black;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 22px;
+      margin-left: 8px;
+      transition: 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: rgb(13, 164, 252);
+      color: black;
+    }
+
+    /* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #fff; /* Black background color */
+    color: #333; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }

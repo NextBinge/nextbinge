@@ -63,3 +63,6 @@ def search(request):
             return render(request, "buffer.html", context)
     else:
         return render(request, 'index.html')
+
+def recommend(request):
+    return render(request, 'recommend.html')
