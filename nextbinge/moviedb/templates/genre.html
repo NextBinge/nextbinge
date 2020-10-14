@@ -3,330 +3,276 @@
 {% block content %}
 {% load removespecial %}
 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
 <style>
-body {
-  background: linear-gradient( #F94144 12.5%, #F3722C 25%, #F8961E 37.5%, #F9C74F 50%, #90BE6D 62.5%, #43AA8B 75%,#577590 87.5%,#325db9 100%);
+body{
+  font-family: 'Noto Sans JP', sans-serif;
 }
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  /* border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF; */
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0,1);
+  -ms-transform: scale(0,1);
+  transform: scale(0,1);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+  /* filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter'); */
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2{
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, .hovereffect p{
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 , .hover-this{
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
 </style>
 
 
 
-<section id="about" class="align-items-center">
-  <div class="container-fluid">
+<section id="about">
+  <!-- <div class="container"> -->
 
     <h1 class="title display-1" align= center id="9" style="font-weight: bold;">Genre</h1>
 
-    <!-- Start of row -->
-    <div class="row">
 
-      <!--Img column -->
-      <div class="col-md-6 height-70">
-        <!-- <h1 id="{{action|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-          <a href="{% url 'genre_type' genre_name='action' %}">`
-              <div class="item p-5">
-                <img id="{{action|removespecial}}" src='' alt="No image">
-                <h5 class="card-title" id="1" style="font-weight: bold; font-size: 0;">{{action}}</h5>
-              </div>
-            </a>
-        <!-- </h1> -->
+
+<!-- GENRE ROW -->
+<a href="#">
+    <div class="row no-gutters hovereffect" >
+      <div class="col-lg-4" >
+        <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" alt="" style="height: 578px; width: 100%">
       </div>
-      <!-- End of img column -->
 
-      <!-- About text column -->
-      <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-        <!-- This is for centering -->
-        <div class="about-text-center">
-          <!-- Title -->
-            <div class="row">
-              <div class="col text-center">
-                <h1 class="display-1 text-uppercase text-dark mb-0">
-                  <a href="{% url 'genre_type' genre_name='action' %}">
-                    <strong>Action</strong>
-                  </a>
-                </h1>
-                <div class="title-underline bg-warning"></div>
-              </div>
-            </div>
-          <!-- End of Title -->
-        </div>
+      <div class="col-lg-4" >
+        <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg" alt="" style="height: 578px; width: 100%">
       </div>
-      <!-- End of text column -->
 
+      <div class="col-lg-4" >
+        <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/AdRQGfT05z6L9gIpUpkh4McMmpm.jpg" alt="" style="height: 578px; width: 100%">
+      </div>
+
+      <p class="overlay align-items-center display-1">Action</p>
+      
     </div>
-    <!-- End of row -->
+</a>
+<!-- GENRE ROW END-->
 
-        <!-- Start of row -->
-        <div class="row">
 
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>adventure</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
 
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{adventure|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='adventure' %}">`
-                  <div class="item p-5">
-                    <img id="{{adventure|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="2" style="font-weight: bold; font-size: 0;">{{adventure}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/ji3ecJphATlVgWNY0B0RVXZizdf.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/xUuHj3CgmZQ9P2cMaqQs4J0d4Zc.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Adventure</p>
     
-          
-    
-        </div>
-        <!-- End of row -->
-
-
-        <!-- Start of row -->
-        <div class="row">
-
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{horror|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='horror' %}">`
-                  <div class="item p-5">
-                    <img id="{{horror|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="3" style="font-weight: bold; font-size: 0;">{{horror}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
-    
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>horror</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
-    
-        </div>
-        <!-- End of row -->
-
-    <!-- Start of row -->
-      <div class="row">
-
-      <!-- About text column -->
-      <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-        <!-- This is for centering -->
-        <div class="about-text-center">
-          <!-- Title -->
-            <div class="row">
-              <div class="col text-center">
-                <h1 class="display-1 text-uppercase text-dark mb-0">
-                  <strong>science fiction</strong>
-                </h1>
-                <div class="title-underline bg-warning"></div>
-              </div>
-            </div>
-          <!-- End of Title -->
-        </div>
-      </div>
-      <!-- End of text column -->
-
-      <!--Img column -->
-        <div class="col-md-6 height-70">
-          <!-- <h1 id="{{sciencefiction|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='scifi' %}">`
-                <div class="item p-5">
-                  <img id="{{scifi|removespecial}}" src='{{scifi}}' alt="No image">
-                  <h5 class="card-title" id="4" style="font-weight: bold; font-size: 0;">{{scifi}}</h5>
-                </div>
-              </a>
-          <!-- </h1> -->
-        </div>
-        <!-- End of img column -->
-
-        
-      </div>
-    <!-- End of row -->
-
-        
-
-        <!-- Start of row -->
-        <div class="row">
-
-          
-
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{comedy|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='comedy' %}">`
-                  <div class="item p-5">
-                    <img id="{{comedy|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="5" style="font-weight: bold; font-size: 0;">{{comedy}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
-
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>comedy</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
-    
-          
-    
-        </div>
-        <!-- End of row -->
-
-        <!-- Start of row -->
-        <div class="row">
-    
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>romance</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
-
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{romance|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='romance' %}">`
-                  <div class="item p-5">
-                    <img id="{{romance|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="6" style="font-weight: bold; font-size: 0;">{{romance}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
-    
-        </div>
-        <!-- End of row -->
-
-        <!-- Start of row -->
-        <div class="row">
-
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{thriller|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='thriller' %}">`
-                  <div class="item p-5">
-                    <img id="{{thriller|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="7" style="font-weight: bold; font-size: 0;">{{thriller}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
-
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>thriller</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
-    
-          
-        </div>
-        <!-- End of row -->
-
-        <!-- Start of row -->
-        <div class="row">
-
-          <!-- About text column -->
-          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
-            <!-- This is for centering -->
-            <div class="about-text-center">
-              <!-- Title -->
-                <div class="row">
-                  <div class="col text-center">
-                    <h1 class="display-1 text-uppercase text-dark mb-0">
-                      <strong>crime</strong>
-                    </h1>
-                    <div class="title-underline bg-warning"></div>
-                  </div>
-                </div>
-              <!-- End of Title -->
-            </div>
-          </div>
-          <!-- End of text column -->
-
-          <!--Img column -->
-          <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-              <a href="{% url 'genre_type' genre_name='crime' %}">`
-                  <div class="item p-5">
-                    <img id="{{crime|removespecial}}" src='' alt="No image">
-                    <h5 class="card-title" id="8" style="font-weight: bold; font-size: 0;">{{crime}}</h5>
-                  </div>
-                </a>
-            <!-- </h1> -->
-          </div>
-          <!-- End of img column -->
-    
-        </div>
-        <!-- End of row -->
-    
-
   </div>
+</a>
+<!-- GENRE ROW END-->
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/f7pn0VD3QpEXH8sETFNUow4o7hz.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/kdxZZ04HFh98ZZBiTZNWHMexsGZ.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/w5JjiB3O1CLDXbTJe1QpU5RHmlU.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Horror</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/5UsK3grJvtQrtzEgqNlDljJW96w.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Science Fiction</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/lRHE0vzf3oYJrhbsHXjIkF4Tl5A.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/yGSxMiF0cYuAiyuve5DA6bnWEOI.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/nlr2oxuYsHXt0wdtmzaOuVBoNC0.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Comedy</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+  
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/63kGofUkt1Mx0SIL4XI4Z5AoSgt.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/hMVMMy1yDUvdufpTl8J8KKNYaZX.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Romance</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/2x8ida0rHokUv80Ah4eBNb2eXas.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/kve20tXwUZpu4GUX8l6X7Z4jmL6.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/jyAgiqVSx5fl0NNj7WoGGKweXrL.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Thriller</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+
+<!-- GENRE ROW -->
+<a href="#">
+  <div class="row no-gutters hovereffect" >
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/j9HrX8f7GbZQm1BrBiR40uFQZSb.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <div class="col-lg-4" >
+      <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/nGY6NnlDsWaRKAycWUgXanqLxia.jpg" alt="" style="height: 578px; width: 100%">
+    </div>
+
+    <p class="overlay align-items-center display-1">Crime</p>
+    
+  </div>
+</a>
+<!-- GENRE ROW END-->
+  
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'searchbase.js' %}"></script>

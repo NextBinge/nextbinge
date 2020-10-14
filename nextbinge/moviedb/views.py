@@ -103,8 +103,6 @@ def getresult(request):
         return 
 
 def genre_view(request, genre_name):
- 
-
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),
         'name': genre_name,
