@@ -28,5 +28,6 @@ urlpatterns = [
     path('genre/', views.genre_disp, name='genre'),
     path('genre/<genre_name>/', views.genre_view, name='genre_type'),
     path('recommend/', views.recommend, name='recommend'),
+    path('getresult/', views.getresult, name='getresult'),
 ]
 

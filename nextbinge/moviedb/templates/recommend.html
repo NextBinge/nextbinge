@@ -11,17 +11,35 @@
 </head>
 <body style="background-color: black; color: white;">
     <h1 align=center style="font-weight: bold; font-size: 8em; padding: 50px;"><a href="{% url 'index' %}">NextBinge</a></h1>
-    <form class="form-inline" style="position: absolute; left: 28%;" method="POST">
-        {% csrf_token %}
+    <form class="form-inline" style="position: absolute; left: 28%;" action="" method="POST">
+        
         <div id="prefetch" class="demo">
             <input id="searchbox" class="typeahead" type="text" placeholder="Search Movies..." name="searchvalue" autocomplete="off">
           </div>
           <button id="add" class="btn my-2 my-sm-0" type="button">Add</button>
-        <button id="search" class="btn my-2 my-sm-0" type="submit">Search</button>
+        <button id="search" class="btn my-2 my-sm-0" type="button">Search</button>
     </form>
     <div id="movierow">
     </div>
     <div id="snackbar">Invalid Movie!</div>
+    <script>
+    $("#search").on("click",function(){
+        var moviesjson= JSON.stringify(movies);
+        console.log(moviesjson);
+        var token = "{{csrf_token}}";
+        $.ajax({
+            headers: { "X-CSRFToken": token },
+            type: "POST",
+            url:"/getresult/",
+            data:moviesjson,
+            contentType: "application/json",
+            dataType:"text",
+            success: function(result){
+                // window.location.href = "http://127.0.0.1:8000/getresult";
+        }
+        });
+    });
+    </script>
     <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
        <script src="{% static 'main.js' %}"></script>
        <script src="{% static 'recommend.js' %}"></script>
