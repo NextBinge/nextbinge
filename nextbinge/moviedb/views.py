@@ -82,7 +82,8 @@ def recommend(request):
     return render(request, 'recommend.html')
 
 
-def genre_view(request, genre_name):
+def genre_view(request, genre_name, *args, **kwargs):
+    # sample = kwargs['genre_name']
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),
         'name': genre_name,
