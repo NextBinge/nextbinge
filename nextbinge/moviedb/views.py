@@ -13,15 +13,15 @@ def toprated_view(request):
     return render(request, "searchbase.html", context)
 
 def index(request):
-    context = {'most_popular_movies': sqlqueries.mostpopular()
-        'action':sqlqueries.getMovies_genre("action"),
-        'adventure':sqlqueries.getMovies_genre("adventure"),
-        'horror':sqlqueries.getMovies_genre("horror"),
-        'sciencefiction':sqlqueries.getMovies_genre("science fiction"),
-        'comedy':sqlqueries.getMovies_genre("comedy"),
-        'romance':sqlqueries.getMovies_genre("romance"),
-        'thriller':sqlqueries.getMovies_genre("thriller"),
-        'crime':sqlqueries.getMovies_genre("crime"),
+    context = {'most_popular_movies': sqlqueries.mostpopular(),
+        'action':"Ghostbusters",
+        'adventure':"Life of Pi",
+        'horror':"Annabelle",
+        'sciencefiction':"Iron Man 2",
+        'comedy':"kung fu panda 3",
+        'romance':"Fifty Shades of Grey",
+        'thriller':"xXx",
+        'crime':"spectre",
     }
     return render(request, 'index.html', context)
 
