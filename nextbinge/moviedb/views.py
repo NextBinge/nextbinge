@@ -65,6 +65,19 @@ def search(request):
     else:
         return render(request, 'index.html')
 
+def genre_disp(request):
+    context={
+        'action':sqlqueries.getMovies_genre("action"),
+        'adventure':sqlqueries.getMovies_genre("adventure"),
+        'horror':sqlqueries.getMovies_genre("horror"),
+        'sciencefiction':sqlqueries.getMovies_genre("science fiction"),
+        'comedy':sqlqueries.getMovies_genre("comedy"),
+        'romance':sqlqueries.getMovies_genre("romance"),
+        'thriller':sqlqueries.getMovies_genre("thriller"),
+        'crime':sqlqueries.getMovies_genre("crime"),
+    }
+    return render(request, "genre.html", context)
+
 def recommend(request):
     return render(request, 'recommend.html')
 
@@ -76,3 +89,10 @@ def getresult(request):
         print(sortedGenres)
         print(sqlqueries.getRecommendation(sortedGenres))
     return redirect('http://127.0.0.1:8000/')
+
+def genre_view(request, genre_name):
+    context={
+        'genre_movie_detail': sqlqueries.genre_detail(genre_name),
+        'name': genre_name,
+    }
+    return render(request, 'searchbase.html', context)

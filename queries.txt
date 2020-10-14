@@ -2,7 +2,7 @@ SEARCH BY GENRES-MOVIE NAME:
 
 by join:
 
-select distinct(m.movie_name) from movie as m
+select distinct(m.movie_name), m.movie_id, d.release_date, d.runtime from movie as m
 natural join details as d
 where FIND_IN_SET("THE GENRE",genre)>0;
 

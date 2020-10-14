@@ -44,6 +44,15 @@
             text-align: center;
             text-transform: initial;
         }
+        menu{
+            width:200px;
+            height:650px;
+            border-bottom:none;
+            border-left:solid 1px;
+}
+        .menu img{
+            width:100%; height:auto;;
+        }
     </style>
 </head>
 <body style="background-color: black; color: white ;">
@@ -56,6 +65,7 @@
             <a href="{% url 'recent' %}">Recently Added</a>
             <a href="{% url 'surpriseme' %}" class="btn" style="display: inline-block; text-align: center; padding: 8px;">Surprise Me!</a>
             <a href="{% url 'recommend' %}" class="btn recommend" style="display: inline-block; text-align: center; padding: 8px; font-weight: bold;">Recommender</a>
+            <a href="{% url 'genre' %}">GENRE</a>
         </div>
         <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
 
@@ -69,6 +79,8 @@
               </div>
             <button class="btn my-2 my-sm-0" type="submit">Search</button>
         </form>
+
+        
     </nav>
 
     {% block content %}

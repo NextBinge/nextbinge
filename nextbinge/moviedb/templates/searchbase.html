@@ -93,6 +93,29 @@
     {% endfor %}
 </ul>
 
+{% elif genre_movie_detail %}
+  <h1 id="{{genre_movie_detail|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name}}</h1>
+  <ul>
+    {% for movie in genre_movie_detail %}
+    <div class="gallery" style="border: black solid;">
+      <a href="{% url 'movie' movie.id %}">
+    <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
+          <p class="card-text">Runtime: {{movie.time}} mins</p>
+            <p class="card-text">Release date: {{movie.date}}</p>
+        </div>
+      </div>
+    </div>
+  </div></a></div>
+    {% endfor %}
+</ul>
+
 {% endif %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'searchbase.js' %}"></script>

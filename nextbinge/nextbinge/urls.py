@@ -25,6 +25,8 @@ urlpatterns = [
     path('surpriseme/', views.surpriseme, name='surpriseme'),
     path('actor/<int:actor_id>', views.actor_view, name='actor'),
     path('typeahead/', views.typeahead, name='typeahead'),
+    path('genre/', views.genre_disp, name='genre'),
+    path('genre/<genre_name>', views.genre_view, name='genre_type'),
     path('recommend/', views.recommend, name='recommend'),
     path('getresult/', views.getresult, name='getresult'),
 ]
