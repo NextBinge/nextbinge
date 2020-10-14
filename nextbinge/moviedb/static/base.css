@@ -99,4 +99,7 @@
     background-color: chartreuse;
     color: black;
   }
-  
+ 
+* {
+  box-sizing: border-box;
+}

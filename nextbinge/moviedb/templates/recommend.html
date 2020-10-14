@@ -35,6 +35,11 @@
             contentType: "application/json",
             dataType:"text",
             success: function(result){
+                var jsonresult = JSON.parse(result)
+                console.log(jsonresult.redirect);
+                if(jsonresult.redirect) {
+                    window.location.href = jsonresult.redirect;
+                }
                 // window.location.href = "http://127.0.0.1:8000/getresult";
         }
         });

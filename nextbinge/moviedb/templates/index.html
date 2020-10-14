@@ -57,89 +57,97 @@ items: 4
 <h2 style="text-align:center; font-weight: bold; display: block;">GENRE</h2> 
 <br>
 
-<!-- <div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/horror.jpeg' %}" alt="HORROR" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">HORROR</div>
-        
+<div class="main">
+    <div class="row">
+        <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='action' %}">
+                <div class="item p-5">
+                    <img id="{{action|removespecial}}" src='http://image.tmdb.org/t/p/w500/6a2HY6UmD7XiDD3NokgaBAXEsD2.jpg' alt="No image">
+                    <h5 class="card-title" id="590" style="font-weight: bold; font-size: 0;">{{action}}</h5>
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+      <div class="col-md-6 height-70">
+        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+        <a href="{% url 'genre_type' genre_name='adventure' %}">
+            <div class="item p-5">
+                <img id="{{adventure|removespecial}}" src='http://image.tmdb.org/t/p/w500/mYDKm9HxImm8PRru3KbkHAe1cmk.jpg' alt="No image">
+                <h5 class="card-title" id="591" style="font-weight: bold; font-size: 0;">{{adventure}}</h5>
+            </div>
+        </a>
+        <!-- </h1> -->
     </div>
+      <div class="col-md-6 height-70">
+        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+        <a href="{% url 'genre_type' genre_name='horror' %}">
+            <div class="item p-5">
+                <img id="{{horror|removespecial}}" src='http://image.tmdb.org/t/p/w500/f7pn0VD3QpEXH8sETFNUow4o7hz.jpg' alt="No image">
+                <h5 class="card-title" id="592" style="font-weight: bold; font-size: 0;">{{horror}}</h5>
+            </div>
+        </a>
+        <!-- </h1> -->
+    </div>
+      <div class="col-md-6 height-70">
+        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+        <a href="{% url 'genre_type' genre_name='sciencefiction' %}">
+            <div class="item p-5">
+                <img id="{{sciencefiction|removespecial}}" src='http://image.tmdb.org/t/p/w500/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg' alt="No image">
+                <h5 class="card-title" id="593" style="font-weight: bold; font-size: 0;">{{sciencefiction}}</h5>
+            </div>
+        </a>
+        <!-- </h1> -->
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='crime' %}">
+                <div class="item p-5">
+                    <img id="{{crime|removespecial}}" src='http://image.tmdb.org/t/p/w500/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg' alt="No image">
+                    <h5 class="card-title" id="594" style="font-weight: bold; font-size: 0;">{{crime}}</h5>
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+
+        <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='romance' %}">
+                <div class="item p-5">
+                    <img id="{{romance|removespecial}}" src='http://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg' alt="No image">
+                    <h5 class="card-title" id="595" style="font-weight: bold; font-size: 0;">{{romance}}</h5>
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+
+        <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='thriller' %}">
+                <div class="item p-5">
+                    <img id="{{thriller|removespecial}}" src='http://image.tmdb.org/t/p/w500/kve20tXwUZpu4GUX8l6X7Z4jmL6.jpg' alt="No image">
+                    <h5 class="card-title" id="596" style="font-weight: bold; font-size: 0;">{{thriller}}</h5>
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+
+        <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='comedy' %}">
+                <div class="item p-5">
+                    <img id="{{comedy|removespecial}}" src='http://image.tmdb.org/t/p/w500/nlr2oxuYsHXt0wdtmzaOuVBoNC0.jpg' alt="No image">
+                    <h5 class="card-title" id="597" style="font-weight: bold; font-size: 0;">{{comedy}}</h5>
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+    </div>
+
 </div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/action.jpg' %}" alt="ACTION" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">ACTION</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/adventure1.jpg' %}" alt="ADVENTURE" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">ADVENTURE</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/science fiction.jpg' %}" alt="SCIENCE FICTION" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">SCIENCE FICTION</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/crime.jpg' %}" alt="CRIME" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">CRIME</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/comedy.jpg' %}" alt="COMEDY" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">COMEDY</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/romance.jpg' %}" alt="ROMANCE" style="width:100%">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">ROMANCE</div>
-        
-    </div>
-</div>
-
-<div class="galle">
-    <div class="w3-card-4">
-          <img src="{% static 'images/thriller.jpg' %}" alt="THRILLER" style="width:100%;">
-          <div class="w3-xlarge w3-display-bottomleft w3-padding">THRILLER</div>
-        
-    </div>
-</div> -->
-
-<div class="row py-3">
-    <!-- Single Image -->
-      <div class="col-sm-6 col-md-4 my-3">
-        <img class="img-fluid" src="" alt="">
-      </div>
-    <!-- End of Single Image -->
-
-    <!-- Single Image -->
-    <div class="col-sm-6 col-md-4 my-3">
-      <img class="img-fluid" src="" alt="">
-    </div>
-  <!-- End of Single Image -->
-
-  <!-- Single Image -->
-  <div class="col-sm-6 col-md-4 my-3 mx-auto">
-    <img class="img-fluid" src="" alt="">
-  </div>
-<!-- End of Single Image -->
-  </div>
 
 <script src="{% static 'searchbase.js' %}"></script>
 
