@@ -5,6 +5,7 @@ from django.http import HttpResponse
 import json
 import random
 
+recom = []
 
 # Create your views here.
 def toprated_view(request):
@@ -86,9 +87,18 @@ def getresult(request):
         userinput = json.loads(request.body)
         genres = sqlqueries.getGenre(userinput)
         sortedGenres = sorted(set(genres), key = lambda ele: genres.count(ele))
-        print(sortedGenres)
-        print(sqlqueries.getRecommendation(sortedGenres))
-    return redirect('http://127.0.0.1:8000/')
+        sortedGenres.reverse()
+        allRecommendation = sqlqueries.getRecommendation(sortedGenres)
+        sortedRecommendation = sorted(set(allRecommendation), key = lambda ele: allRecommendation.count(ele))
+        sortedRecommendation.reverse()
+        sortedRecommendation.remove(userinput[0])
+        sortedRecommendation.remove(userinput[1])
+        sortedRecommendation.remove(userinput[2])
+        recom.clear()
+        recom.append(sortedRecommendation[0])
+        recom.append(sortedRecommendation[1])
+        recom.append(sortedRecommendation[2])
+        return 
 
 def genre_view(request, genre_name):
     context={
