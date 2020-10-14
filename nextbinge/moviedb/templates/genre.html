@@ -1,9 +1,62 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load removespecial %}
 
-<h1  align = center class="title">GENRE</h1>
-<br>
+<!-- Title -->
+      <div class="row bg-warning">
+        <div class="col text-center">
+          <h1 class="display-4 text-uppercase text-dark mb-0">
+            <strong>Genre</strong>
+          </h1>
+          <div class="title-underline bg-danger"></div>
+          <p class="mt-2 text-capitalize text-muted">Lorem ipsum dolor sit.</p>
+        </div>
+      </div>
+<!-- End of Title -->
+
+<section id="about" class="bg-info">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- About img column -->
+      <!-- For parallax, search css file -->
+
+      
+        <!-- <h5 id="{{forloop.counter}}">{{movie.name}}</h5> -->
+            
+        <h8 id="{{action|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;">
+            <a href="{% url 'genre_type' action %}" id="{{forloop.counter}}">
+                <div class="item p-5"><img id="{{action.name|removespecial}}" src='' alt="No image">
+                    {{action}}
+                </div>
+            </a>
+        </h8>
+            
+      <!-- {% comment %} <div class="col-md-6 about-picture height-80"></div> {% endcomment %} -->
+
+      <!-- End of img column -->
+
+      <!-- About text column -->
+      <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+        <!-- This is for centering -->
+        <div class="about-text-center">
+          <!-- Title -->
+            <div class="row">
+              <div class="col text-center">
+                <h1 class="display-4 text-uppercase text-dark mb-0">
+                  <strong>About</strong>
+                </h1>
+                <div class="title-underline bg-warning"></div>
+                <p class="mt-2 text-capitalize text-muted">Lorem ipsum dolor sit.</p>
+              </div>
+            </div>
+          <!-- End of Title -->
+
+          
+
+        </div>
+      </div>
+      <!-- End of text column -->
 
 
 {% endblock content %}
