@@ -5,6 +5,7 @@ from django.http import HttpResponse
 import json
 import random
 
+recom = []
 
 # Create your views here.
 def toprated_view(request):
@@ -75,6 +76,7 @@ def search(request):
         return render(request, 'index.html')
 
 def genre_disp(request):
+    
     context={
         'action':sqlqueries.getMovies_genre("action"),
         'adventure':sqlqueries.getMovies_genre("adventure"),
@@ -84,6 +86,7 @@ def genre_disp(request):
         'romance':sqlqueries.getMovies_genre("romance"),
         'thriller':sqlqueries.getMovies_genre("thriller"),
         'crime':sqlqueries.getMovies_genre("crime"),
+        'scifi': "Interstellar",
     }
     return render(request, "genre.html", context)
 
@@ -95,14 +98,25 @@ def getresult(request):
         userinput = json.loads(request.body)
         genres = sqlqueries.getGenre(userinput)
         sortedGenres = sorted(set(genres), key = lambda ele: genres.count(ele))
-        print(sortedGenres)
-        print(sqlqueries.getRecommendation(sortedGenres))
-    return redirect('http://127.0.0.1:8000/')
+        sortedGenres.reverse()
+        allRecommendation = sqlqueries.getRecommendation(sortedGenres)
+        sortedRecommendation = sorted(set(allRecommendation), key = lambda ele: allRecommendation.count(ele))
+        sortedRecommendation.reverse()
+        sortedRecommendation.remove(userinput[0])
+        sortedRecommendation.remove(userinput[1])
+        sortedRecommendation.remove(userinput[2])
+        recom.clear()
+        recom.append(sortedRecommendation[0])
+        recom.append(sortedRecommendation[1])
+        recom.append(sortedRecommendation[2])
+        return 
 
 def genre_view(request, genre_name):
-    # sample = kwargs['genre_name']
+ 
+
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),
         'name': genre_name,
     }
     return render(request, 'searchbase.html', context)
+
