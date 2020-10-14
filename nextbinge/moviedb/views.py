@@ -13,15 +13,8 @@ def toprated_view(request):
     return render(request, "searchbase.html", context)
 
 def index(request):
-    context = {'most_popular_movies': sqlqueries.mostpopular(),
-        'action':"Ghostbusters",
-        'adventure':"Life of Pi",
-        'horror':"Annabelle",
-        'sciencefiction':"Iron Man 2",
-        'comedy':"kung fu panda 3",
-        'romance':"Fifty Shades of Grey",
-        'thriller':"xXx",
-        'crime':"spectre",
+    context = {
+        'most_popular_movies': sqlqueries.mostpopular(),  
     }
     return render(request, 'index.html', context)
 
@@ -124,6 +117,9 @@ def getresult(request):
         return JsonResponse({'redirect': 'http://127.0.0.1:8000/recommend/result'})
 
 def genre_view(request, genre_name):
+    if genre_name == "sciencefiction":
+        genre_name = "science fiction"
+
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),
         'name': genre_name,

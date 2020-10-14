@@ -53,99 +53,135 @@ items: 4
 
 });
 </script>
+
+<style>
+    .image-text {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+div.item:hover {
+    font-size: 2em;
+
+}
+</style>
 <br>
-<h2 style="text-align:center; font-weight: bold; display: block;">GENRE</h2> 
+<h2 style="text-align:center; font-weight: bold; display: block;" class="display-1">GENRE</h2> 
 <br>
 
 <div class="main">
-    <div class="row">
-        <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='action' %}">
-                <div class="item p-5">
-                    <img id="{{action|removespecial}}" src='http://image.tmdb.org/t/p/w500/6a2HY6UmD7XiDD3NokgaBAXEsD2.jpg' alt="No image">
-                    <h5 class="card-title" id="590" style="font-weight: bold; font-size: 0;">{{action}}</h5>
-                </div>
-            </a>
-            <!-- </h1> -->
-        </div>
-      <div class="col-md-6 height-70">
-        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-        <a href="{% url 'genre_type' genre_name='adventure' %}">
-            <div class="item p-5">
-                <img id="{{adventure|removespecial}}" src='http://image.tmdb.org/t/p/w500/mYDKm9HxImm8PRru3KbkHAe1cmk.jpg' alt="No image">
-                <h5 class="card-title" id="591" style="font-weight: bold; font-size: 0;">{{adventure}}</h5>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+                <a href="{% url 'genre_type' genre_name='action' %}">
+                    <div class="item " style="border-color: black; background-color: black;">
+                        <img id="{{action|removespecial}}" src='http://image.tmdb.org/t/p/w500/6a2HY6UmD7XiDD3NokgaBAXEsD2.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                        <div class="centered" style="font-size: 2em;">Action</div>
+                        <!-- <h5 class="card-title" id="590" style="font-weight: bold; font-size: 0;">{{action}}</h5> -->
+                    </div>
+                </a>
+                <!-- </h1> -->
             </div>
-        </a>
-        <!-- </h1> -->
+          <div class="col-md-3">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='adventure' %}">
+                <div class="item " style="border-color: black; background-color: black;">
+                    <img id="{{adventure|removespecial}}" src='http://image.tmdb.org/t/p/w500/mYDKm9HxImm8PRru3KbkHAe1cmk.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                    <div class="centered" style="font-size: 2em;">Adventure</div>
+                    <!-- <h5 class="card-title" id="591" style="font-weight: bold; font-size: 0;">{{adventure}}</h5> -->
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+          <div class="col-md-3">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='horror' %}">
+                <div class="item " style="border-color: black; background-color: black;">
+                    <img id="{{horror|removespecial}}" src='http://image.tmdb.org/t/p/w500/f7pn0VD3QpEXH8sETFNUow4o7hz.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                    <div class="centered" style="font-size: 2em;">Horror</div>
+                    <!-- <h5 class="card-title" id="592" style="font-weight: bold; font-size: 0;">{{horror}}</h5> -->
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+          <div class="col-md-3">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='sciencefiction' %}">
+                <div class="item " style="border-color: black; background-color: black;">
+                    <img id="{{sciencefiction|removespecial}}" src='http://image.tmdb.org/t/p/w500/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                    <div class="centered" style="font-size: 2em;">Science Fiction</div>
+                    <!-- <h5 class="card-title" id="593" style="font-weight: bold; font-size: 0;">{{sciencefiction}}</h5> -->
+                </div>
+            </a>
+            <!-- </h1> -->
+        </div>
+        </div>
+    
     </div>
-      <div class="col-md-6 height-70">
-        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-        <a href="{% url 'genre_type' genre_name='horror' %}">
-            <div class="item p-5">
-                <img id="{{horror|removespecial}}" src='http://image.tmdb.org/t/p/w500/f7pn0VD3QpEXH8sETFNUow4o7hz.jpg' alt="No image">
-                <h5 class="card-title" id="592" style="font-weight: bold; font-size: 0;">{{horror}}</h5>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+                <a href="{% url 'genre_type' genre_name='crime' %}">
+                    <div class="item" style="border-color: black; background-color: black;">
+                        <img id="{{crime|removespecial}}" src='http://image.tmdb.org/t/p/w500/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                        <div class="centered" style="font-size: 2em;">Crime</div>
+                        <!-- <h5 class="card-title" id="594" style="font-weight: bold; ">{{crime}}</h5> -->
+                    </div>
+                </a>
+                <!-- </h1> -->
             </div>
-        </a>
-        <!-- </h1> -->
-    </div>
-      <div class="col-md-6 height-70">
-        <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-        <a href="{% url 'genre_type' genre_name='sciencefiction' %}">
-            <div class="item p-5">
-                <img id="{{sciencefiction|removespecial}}" src='http://image.tmdb.org/t/p/w500/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg' alt="No image">
-                <h5 class="card-title" id="593" style="font-weight: bold; font-size: 0;">{{sciencefiction}}</h5>
+    
+            <div class="col-md-3">
+                <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+                <a href="{% url 'genre_type' genre_name='romance' %}">
+                    <div class="item " style="border-color: black; background-color: black;">
+                        <img id="{{romance|removespecial}}" src='http://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                        <div class="centered" style="font-size: 2em;">Romance</div>
+                        <!-- <h5 class="card-title" id="595" style="font-weight: bold; font-size: 0;">{{romance}}</h5> -->
+                    </div>
+                </a>
+                <!-- </h1> -->
             </div>
-        </a>
-        <!-- </h1> -->
+    
+            <div class="col-md-3">
+                <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+                <a href="{% url 'genre_type' genre_name='thriller' %}">
+                    <div class="item " style="border-color: black; background-color: black;">
+                        <img id="{{thriller|removespecial}}" src='http://image.tmdb.org/t/p/w500/kve20tXwUZpu4GUX8l6X7Z4jmL6.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                        <div class="centered" style="font-size: 2em;">Thriller</div>
+                        <!-- <h5 class="card-title" id="596" style="font-weight: bold; font-size: 0;">{{thriller}}</h5> -->
+                    </div>
+                </a>
+                <!-- </h1> -->
+            </div>
+    
+            <div class="col-md-3">
+                <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+                <a href="{% url 'genre_type' genre_name='comedy' %}">
+                    <div class="item image" style="border-color: black; background-color: black;"> 
+                        <img id="{{comedy|removespecial}}" src='http://image.tmdb.org/t/p/w500/nlr2oxuYsHXt0wdtmzaOuVBoNC0.jpg' alt="No image" style="height: 435px; width: 290px; opacity: 0.5;">
+                        <!-- <h5 class="card-title" id="597" style="font-weight: bold; font-size: 0;">{{comedy}}</h5> -->
+                        <div class="centered" style="font-size: 2em;">Comedy</div>
+                    </div>
+                </a>
+                <!-- </h1> -->
+            </div>
     </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='crime' %}">
-                <div class="item p-5">
-                    <img id="{{crime|removespecial}}" src='http://image.tmdb.org/t/p/w500/y1MYZkwhZK6L0Jy4YMuPktzDOfn.jpg' alt="No image">
-                    <h5 class="card-title" id="594" style="font-weight: bold; font-size: 0;">{{crime}}</h5>
-                </div>
-            </a>
-            <!-- </h1> -->
-        </div>
-
-        <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='romance' %}">
-                <div class="item p-5">
-                    <img id="{{romance|removespecial}}" src='http://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg' alt="No image">
-                    <h5 class="card-title" id="595" style="font-weight: bold; font-size: 0;">{{romance}}</h5>
-                </div>
-            </a>
-            <!-- </h1> -->
-        </div>
-
-        <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='thriller' %}">
-                <div class="item p-5">
-                    <img id="{{thriller|removespecial}}" src='http://image.tmdb.org/t/p/w500/kve20tXwUZpu4GUX8l6X7Z4jmL6.jpg' alt="No image">
-                    <h5 class="card-title" id="596" style="font-weight: bold; font-size: 0;">{{thriller}}</h5>
-                </div>
-            </a>
-            <!-- </h1> -->
-        </div>
-
-        <div class="col-md-6 height-70">
-            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
-            <a href="{% url 'genre_type' genre_name='comedy' %}">
-                <div class="item p-5">
-                    <img id="{{comedy|removespecial}}" src='http://image.tmdb.org/t/p/w500/nlr2oxuYsHXt0wdtmzaOuVBoNC0.jpg' alt="No image">
-                    <h5 class="card-title" id="597" style="font-weight: bold; font-size: 0;">{{comedy}}</h5>
-                </div>
-            </a>
-            <!-- </h1> -->
-        </div>
-    </div>
+    
 
 </div>
 
