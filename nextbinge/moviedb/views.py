@@ -12,7 +12,16 @@ def toprated_view(request):
     return render(request, "searchbase.html", context)
 
 def index(request):
-    context = {'most_popular_movies': sqlqueries.mostpopular()}
+    context = {'most_popular_movies': sqlqueries.mostpopular()
+        'action':sqlqueries.getMovies_genre("action"),
+        'adventure':sqlqueries.getMovies_genre("adventure"),
+        'horror':sqlqueries.getMovies_genre("horror"),
+        'sciencefiction':sqlqueries.getMovies_genre("science fiction"),
+        'comedy':sqlqueries.getMovies_genre("comedy"),
+        'romance':sqlqueries.getMovies_genre("romance"),
+        'thriller':sqlqueries.getMovies_genre("thriller"),
+        'crime':sqlqueries.getMovies_genre("crime"),
+    }
     return render(request, 'index.html', context)
 
 def mostpopular_view(request):
