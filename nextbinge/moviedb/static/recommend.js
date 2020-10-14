@@ -17,7 +17,7 @@ $(document).ready(() => {
         if(film != "") {
             console.log(film);
             $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=7346d90da037566a43b6a0414c77ea40&query=" + film + "&callback=?", function(json) {
-                if (json.results[0] != null){                 
+                if (json.results[0] != null && !movies.includes(film)){                 
                     console.log(json);
                     var imagelink = "http://image.tmdb.org/t/p/w500/"+json.results[0].poster_path;
                     $('<div class="gall one" style = "margin-left: 200px; margin-top: 100px; padding: 15px border: 0px solid #ccc; float: left; width: 250px;"><div class="w3-card-4"><div class="w3-display-container w3-text-white"><img src="'+imagelink+'" alt="" style="width:100%"></div></div></div>').hide().appendTo("#movierow").fadeIn("fast");

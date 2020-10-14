@@ -73,7 +73,7 @@ def recent():
 
 def actor_descp(mov_name):
     with connection.cursor() as cursor:
-        cursor.execute('''select DISTINCt(a.name),a.actor_id, ch.char_name from movie_character as ch
+        cursor.execute('''select DISTINCT(a.name),a.actor_id, ch.char_name from movie_character as ch
                         natural join movie as m
                         natural join actor as a
                         where m.movie_name=%s''',[mov_name])
@@ -96,7 +96,7 @@ def getMovies():
 
 def actor_movies(act_name):
     with connection.cursor() as cursor:
-        cursor.execute('''select DISTINCt(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime 
+        cursor.execute('''select DISTINCT(m.movie_name),m.movie_id, ch.char_name, d.release_date, d.runtime 
                         from movie_character as ch
                         natural join movie as m
                         natural join actor as a
@@ -104,3 +104,49 @@ def actor_movies(act_name):
                         where a.name=%s''',[act_name])
         res = [{'mname':x[0],'mid':x[1],'cname':x[2],'date':x[3],'time':x[4]} for x in cursor.fetchall()]
         return res
+
+def getGenre(name):
+    with connection.cursor() as cursor:
+        cursor.execute('''select DISTINCT(d.genre)
+                        from details as d
+                        natural join movie as m
+                        where m.movie_name=%s''',[name[0]])
+        one = cursor.fetchall()[0][0].split(",")
+    with connection.cursor() as cursor:
+        cursor.execute('''select DISTINCT(d.genre)
+                        from details as d
+                        natural join movie as m
+                        where m.movie_name=%s''',[name[1]])
+        two = cursor.fetchall()[0][0].split(",")
+    with connection.cursor() as cursor:
+        cursor.execute('''select DISTINCT(d.genre)
+                        from details as d
+                        natural join movie as m
+                        where m.movie_name=%s''',[name[2]])
+        three = cursor.fetchall()[0][0].split(",")
+        res = one+two+three
+        return res
+
+def getRecommendation(genres):
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name)
+                        from movie as m
+                        natural join details as d
+                        where FIND_IN_SET(%s,genre)>0''',[genres[0]])
+        # return [x for x in cursor.fetchall()]
+        one = [x[0] for x in cursor.fetchall()]
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name)
+                        from movie as m
+                        natural join details as d
+                        where FIND_IN_SET(%s,genre)>0''',[genres[1]])
+        two = [x[0] for x in cursor.fetchall()]
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name)
+                        from movie as m
+                        natural join details as d
+                        where FIND_IN_SET(%s,genre)>0''',[genres[2]])
+        three = [x[0] for x in cursor.fetchall()]
+        res = one+two+three
+        return res
+    

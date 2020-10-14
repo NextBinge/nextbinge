@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import sqlqueries
 from . import poster
 from django.http import HttpResponse
@@ -67,3 +67,12 @@ def search(request):
 
 def recommend(request):
     return render(request, 'recommend.html')
+
+def getresult(request):
+    if request.method == "POST":
+        userinput = json.loads(request.body)
+        genres = sqlqueries.getGenre(userinput)
+        sortedGenres = sorted(set(genres), key = lambda ele: genres.count(ele))
+        print(sortedGenres)
+        print(sqlqueries.getRecommendation(sortedGenres))
+    return redirect('http://127.0.0.1:8000/')
