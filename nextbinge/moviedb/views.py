@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . import sqlqueries
 from . import poster
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import json
 import random
 
@@ -82,6 +82,14 @@ def genre_disp(request):
 def recommend(request):
     return render(request, 'recommend.html')
 
+def result(request):
+    idlist = []
+    idlist.append(sqlqueries.getid(recom[0]))
+    idlist.append(sqlqueries.getid(recom[1]))
+    idlist.append(sqlqueries.getid(recom[2]))
+    context = {"movies": recom, "id": idlist}
+    return render(request, 'recommendresult.html', context)
+
 def getresult(request):
     if request.method == "POST":
         userinput = json.loads(request.body)
@@ -91,14 +99,18 @@ def getresult(request):
         allRecommendation = sqlqueries.getRecommendation(sortedGenres)
         sortedRecommendation = sorted(set(allRecommendation), key = lambda ele: allRecommendation.count(ele))
         sortedRecommendation.reverse()
-        sortedRecommendation.remove(userinput[0])
-        sortedRecommendation.remove(userinput[1])
-        sortedRecommendation.remove(userinput[2])
+        if userinput[0] in sortedRecommendation:
+            sortedRecommendation.remove(userinput[0])
+        if userinput[1] in sortedRecommendation:
+            sortedRecommendation.remove(userinput[1])
+        if userinput[2] in sortedRecommendation:
+            sortedRecommendation.remove(userinput[2])
         recom.clear()
         recom.append(sortedRecommendation[0])
         recom.append(sortedRecommendation[1])
         recom.append(sortedRecommendation[2])
-        return 
+        print(recom)
+        return JsonResponse({'redirect': 'http://127.0.0.1:8000/recommend/result'})
 
 def genre_view(request, genre_name):
     # sample = kwargs['genre_name']

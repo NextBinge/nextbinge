@@ -1,0 +1,13 @@
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+.gall {
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: all 0.2s ease-in-out;
+}
+
+.gall:hover {
+    -webkit-transform: scale(1.1);
+}
