@@ -67,6 +67,7 @@ def search(request):
         return render(request, 'index.html')
 
 def genre_disp(request):
+    
     context={
         'action':sqlqueries.getMovies_genre("action"),
         'adventure':sqlqueries.getMovies_genre("adventure"),
@@ -76,6 +77,7 @@ def genre_disp(request):
         'romance':sqlqueries.getMovies_genre("romance"),
         'thriller':sqlqueries.getMovies_genre("thriller"),
         'crime':sqlqueries.getMovies_genre("crime"),
+        'scifi': "Interstellar",
     }
     return render(request, "genre.html", context)
 
@@ -108,3 +110,4 @@ def genre_view(request, genre_name):
         'name': genre_name,
     }
     return render(request, 'searchbase.html', context)
+
