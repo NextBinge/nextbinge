@@ -10,8 +10,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: black; color: white;">
-    <h1 align=center style="font-weight: bold; font-size: 8em; padding: 50px;">NextBinge</h1>
-    <form class="form-inline" style="position: absolute; left: 28%;;" method="POST">
+    <h1 align=center style="font-weight: bold; font-size: 8em; padding: 50px;"><a href="{% url 'index' %}">NextBinge</a></h1>
+    <form class="form-inline" style="position: absolute; left: 28%;" method="POST">
         {% csrf_token %}
         <div id="prefetch" class="demo">
             <input id="searchbox" class="typeahead" type="text" placeholder="Search Movies..." name="searchvalue" autocomplete="off">

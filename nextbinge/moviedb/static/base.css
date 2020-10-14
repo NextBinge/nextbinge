@@ -95,4 +95,8 @@
     background-color: rgb(13, 164, 252);
     color: black;
   }
+  .btn.recommend:hover {
+    background-color: chartreuse;
+    color: black;
+  }
   

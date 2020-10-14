@@ -1,7 +1,10 @@
 .tt-menu {
     text-align: left;
   }
-  
+  a:hover {
+    text-decoration:none;
+    color: white;
+  }
   .demo {
       position: relative;
       *z-index: 1;

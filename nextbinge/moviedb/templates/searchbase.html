@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load removespecial %}
-
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'searchbase.css' %}">
+{% endblock extrahead %}
 {% block content %}
 
 {% if top_rated_movies %}
-    <h1 id="{{top_rated_movies|length|add:1}}" align = center class="title">Top Rated</h1>
+    <h1 id="{{top_rated_movies|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Top Rated</h1>
       {% for movie in top_rated_movies %}
-      <div class="gallery">
+      <div class="gallery" style="border: black solid;">
       <a href="{% url 'movie' movie.id %}">
-      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release date: {{movie.date}}</p>
           </div>
@@ -25,19 +27,19 @@
     </div></a></div>
       {% endfor %}
 {% elif most_popular_movies %}
-    <h1 id="{{most_popular_movies|length|add:1}}" class="title">Most Popular</h1>
+    <h1 id="{{most_popular_movies|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Most Popular</h1>
     <ul>
       {% for movie in most_popular_movies %}
-      <div class="gallery">
+      <div class="gallery" style="border: black solid;">
         <a href="{% url 'movie' movie.id %}">
-      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release date : {{movie.date}}</p>
           </div>
@@ -47,19 +49,19 @@
       {% endfor %}
   </ul>
 {% elif recent_movies %}
-    <h1 id="{{recent_movies|length|add:1}}" class="title">Recently Added</h1>
+    <h1 id="{{recent_movies|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Recently Added</h1>
     <ul>
       {% for movie in recent_movies %}
-      <div class="gallery">
+      <div class="gallery" style="border: black solid;">
         <a href="{% url 'movie' movie.id %}">
-      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
+      <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" id="{{forloop.counter}}">{{movie.name}}</h5>
+            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release Date: {{movie.date}}</p>
           </div>
@@ -69,19 +71,19 @@
       {% endfor %}
   </ul>
   {% elif act_desc %}
-  <h1 id="{{act_desc|length|add:1}}" class="title" align=center>{{name}}</h1>
+  <h1 id="{{act_desc|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name}}</h1>
   <ul>
     {% for actor in act_desc %}
-    <div class="gallery">
+    <div class="gallery" style="border: black solid;">
       <a href="{% url 'movie' actor.mid %}">
-    <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: gray;" >
+    <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
     <div class="row no-gutters">
       <div class="col-md-4">
         <img id="{{actor.mname|removespecial}}" src='' class="card-img" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title" id="{{forloop.counter}}">{{actor.mname}}</h5>
+          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{actor.mname}}</h5>
           <p class="card-text">Runtime: {{actor.time}} mins</p>
             <p class="card-text">Release date: {{actor.date}}</p>
         </div>
