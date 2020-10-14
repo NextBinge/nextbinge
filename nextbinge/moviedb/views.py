@@ -90,7 +90,7 @@ def getresult(request):
         print(sqlqueries.getRecommendation(sortedGenres))
     return redirect('http://127.0.0.1:8000/')
 
-def genre_view(request, genre_name, *args, **kwargs):
+def genre_view(request, genre_name):
     # sample = kwargs['genre_name']
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),

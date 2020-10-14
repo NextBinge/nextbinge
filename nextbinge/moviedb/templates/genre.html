@@ -34,21 +34,23 @@
 
         <h1 id="{{action|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Action</h1>
           <div class="gallery" style="border: black solid;">
-          <a href="{% url 'genre_type' action %}">
-          <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img id="{{action|removespecial}}" src='' class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title" id="1" style="font-weight: bold; font-size: x-large;">{{action}}</h5>
-                <!-- <p class="card-text">Runtime: {{movie.time}} mins</p>
-                <p class="card-text">Release date: {{movie.date}}</p> -->
+            <a href="{% url 'genre_type' genre_name='action' %}">
+              <div class="card mb-3" style="max-width: 550px; height: 270px; background-color: rgb(75, 75, 75);" >
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img id="{{action|removespecial}}" src='' class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title" id="1" style="font-weight: bold; font-size: x-large;">{{action}}</h5>
+                      <!-- <p class="card-text">Runtime: {{movie.time}} mins</p>
+                      <p class="card-text">Release date: {{movie.date}}</p> -->
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div></a></div>
+            </a>
+        </div>
 
         <!-- <h1 id="{{action|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Top Rated</h1>
           <div class="gallery" style="border: black solid;">
