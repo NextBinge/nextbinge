@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link rel="stylesheet" href="{% static 'base.css' %}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    {% block extrahead %}
+
+    {% endblock extrahead %}
     <title>Base Page</title>
     <style>
         div.gallery {
@@ -61,11 +64,12 @@
             <a href="{% url 'toprated' %}">Top Rated</a>
             <a href="{% url 'recent' %}">Recently Added</a>
             <a href="{% url 'surpriseme' %}" class="btn" style="display: inline-block; text-align: center; padding: 8px;">Surprise Me!</a>
+            <a href="{% url 'recommend' %}" class="btn recommend" style="display: inline-block; text-align: center; padding: 8px; font-weight: bold;">Recommender</a>
             <a href="{% url 'genre' %}">GENRE</a>
         </div>
         <span style="font-size:30px;cursor:pointer;color: white;" onclick="openNav()">&#9776;</span>
 
-        <a class="navbar-brand mx-auto" href="{% url 'index' %}" style="font-size: 35px;">NextBinge</a>
+        <a class="navbar-brand mx-auto display-1" href="{% url 'index' %}" style="font-size: 35px;">NextBinge</a>
 
 
         <form class="form-inline" style="float: right;" action="http://127.0.0.1:8000/search/" method="POST">
@@ -73,7 +77,6 @@
             <div id="prefetch" class="demo">
                 <input class="typeahead p-3" type="text" placeholder="Search Movies..." name="searchvalue" autocomplete="off">
               </div>
-            <!-- <input class="form-control" type="search" placeholder="Search Movies" aria-label="Search"> -->
             <button class="btn my-2 my-sm-0" type="submit">Search</button>
         </form>
 

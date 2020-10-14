@@ -68,3 +68,5 @@ def search(request):
 def genre_disp(request):
     return render(request, "genre.html", {})
 
+def recommend(request):
+    return render(request, 'recommend.html')
