@@ -4,7 +4,7 @@ by join:
 
 select distinct(m.movie_name) from movie as m
 natural join details as d
-where FIND_IN_SET("THE GENRE",genre)>0;
+where FIND_IN_SET("THE GENRE",genre)>0 limit 1;
 
 by subquery:
 

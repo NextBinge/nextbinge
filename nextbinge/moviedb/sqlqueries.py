@@ -104,3 +104,11 @@ def actor_movies(act_name):
                         where a.name=%s''',[act_name])
         res = [{'mname':x[0],'mid':x[1],'cname':x[2],'date':x[3],'time':x[4]} for x in cursor.fetchall()]
         return res
+
+def getMovies_genre(gen_name):
+    with connection.cursor() as cursor:
+        cursor.execute('''select distinct(m.movie_name) from movie as m
+                        natural join details as d
+                        where FIND_IN_SET(%s,genre)>0 limit 1''',[gen_name])
+        res = [x[0] for x in cursor.fetchall()]
+        return res
