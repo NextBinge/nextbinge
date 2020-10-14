@@ -41,13 +41,16 @@
     <h1 align=center style="text-transform: initial;"> Cast Members</h1>
     <br>
 
-    {% for var in act_descp %}
-    <a href="{% url 'actor' var.aid %}" id="{{forloop.counter}}">
-        <div class="gall">
-            <div class="desc" style="font-weight: bold;"><h2>{{var.aname}}</h2></div>
-            <div class="desc"><h4>AS</h4></div>
-            <div class="desc"><h2>{{var.cname}}</h2></div>
-        </div>
-    </a>
+    <div class="container">
+        {% for var in act_descp %}
+            <a href="{% url 'actor' var.aid %}" id="{{forloop.counter}}">
+                <div class="gall">
+                    <div class="desc" style="font-weight: bold;"><h2>{{var.aname}}</h2></div>
+                    <div class="desc"><h4>AS</h4></div>
+                    <div class="desc"><h2>{{var.cname}}</h2></div>
+                </div>
+            </a>
     {% endfor %}
+    </div>
+    
 {% endblock content %}
