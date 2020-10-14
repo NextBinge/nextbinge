@@ -70,7 +70,7 @@ def genre_disp(request):
         'action':sqlqueries.getMovies_genre("action"),
         'adventure':sqlqueries.getMovies_genre("adventure"),
         'horror':sqlqueries.getMovies_genre("horror"),
-        'science fiction':sqlqueries.getMovies_genre("science fiction"),
+        'sciencefiction':sqlqueries.getMovies_genre("science fiction"),
         'comedy':sqlqueries.getMovies_genre("comedy"),
         'romance':sqlqueries.getMovies_genre("romance"),
         'thriller':sqlqueries.getMovies_genre("thriller"),
@@ -80,3 +80,11 @@ def genre_disp(request):
 
 def recommend(request):
     return render(request, 'recommend.html')
+
+
+def genre_view(request, genre_name):
+    context={
+        'genre_movie_detail': sqlqueries.genre_detail(genre_name),
+        'name': genre_name,
+    }
+    return render(request, 'searchbase.html', context)
