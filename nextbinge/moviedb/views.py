@@ -65,5 +65,6 @@ def search(request):
     else:
         return render(request, 'index.html')
 
-
+def genre_disp(request):
+    return render(request, "genre.html", {})
 
