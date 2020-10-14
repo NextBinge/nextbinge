@@ -13,7 +13,16 @@ def toprated_view(request):
     return render(request, "searchbase.html", context)
 
 def index(request):
-    context = {'most_popular_movies': sqlqueries.mostpopular()}
+    context = {'most_popular_movies': sqlqueries.mostpopular(),
+        'action':"Ghostbusters",
+        'adventure':"Life of Pi",
+        'horror':"Annabelle",
+        'sciencefiction':"Iron Man 2",
+        'comedy':"kung fu panda 3",
+        'romance':"Fifty Shades of Grey",
+        'thriller':"xXx",
+        'crime':"spectre",
+    }
     return render(request, 'index.html', context)
 
 def mostpopular_view(request):
@@ -67,6 +76,7 @@ def search(request):
         return render(request, 'index.html')
 
 def genre_disp(request):
+    
     context={
         'action':sqlqueries.getMovies_genre("action"),
         'adventure':sqlqueries.getMovies_genre("adventure"),
@@ -76,6 +86,7 @@ def genre_disp(request):
         'romance':sqlqueries.getMovies_genre("romance"),
         'thriller':sqlqueries.getMovies_genre("thriller"),
         'crime':sqlqueries.getMovies_genre("crime"),
+        'scifi': "Interstellar",
     }
     return render(request, "genre.html", context)
 
@@ -113,9 +124,11 @@ def getresult(request):
         return JsonResponse({'redirect': 'http://127.0.0.1:8000/recommend/result'})
 
 def genre_view(request, genre_name):
-    # sample = kwargs['genre_name']
+ 
+
     context={
         'genre_movie_detail': sqlqueries.genre_detail(genre_name),
         'name': genre_name,
     }
     return render(request, 'searchbase.html', context)
+

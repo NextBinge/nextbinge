@@ -3,92 +3,33 @@
 {% block content %}
 {% load removespecial %}
 
-<!-- Title -->
-      <div class="row bg-warning">
-        <div class="col text-center">
-          <h1 class="display-4 text-uppercase text-dark mb-0">
-            <strong>Genre</strong>
-          </h1>
-          <div class="title-underline bg-danger"></div>
-          <p class="mt-2 text-capitalize text-muted">Lorem ipsum dolor sit.</p>
-        </div>
-      </div>
-<!-- End of Title -->
+<style>
+body {
+  background: linear-gradient( #F94144 12.5%, #F3722C 25%, #F8961E 37.5%, #F9C74F 50%, #90BE6D 62.5%, #43AA8B 75%,#577590 87.5%,#325db9 100%);
+}
+</style>
 
-<section id="about" class="bg-info">
+
+
+<section id="about" class="align-items-center">
   <div class="container-fluid">
+
+    <h1 class="title display-1" align= center id="9" style="font-weight: bold;">Genre</h1>
+
+    <!-- Start of row -->
     <div class="row">
-      <!-- About img column -->
-      <!-- For parallax, search css file -->
 
-      
-        <!-- <h5 id="{{forloop.counter}}">{{movie.name}}</h5> -->
-            
-        <!-- <h6 id="{{action|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;">
-            <a href="{% url 'genre_type' action %}" id="{{forloop.counter}}">
-                <div class="item p-5"><img id="{{action.name|removespecial}}" src='' alt="No image">
-                    {{action}}
-                </div>
-            </a>
-        </h6> -->
-
-        <h1 id="{{action|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Action</h1>
-          <div class="gallery" style="border: black solid;">
-            <a href="{% url 'genre_type' genre_name='action' %}">
-              <div class="card mb-3" style="max-width: 550px; height: 270px; background-color: rgb(75, 75, 75);" >
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img id="{{action|removespecial}}" src='' class="card-img" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title" id="1" style="font-weight: bold; font-size: x-large;">{{action}}</h5>
-                      <!-- <p class="card-text">Runtime: {{movie.time}} mins</p>
-                      <p class="card-text">Release date: {{movie.date}}</p> -->
-                    </div>
-                  </div>
-                </div>
+      <!--Img column -->
+      <div class="col-md-6 height-70">
+        <!-- <h1 id="{{action|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+          <a href="{% url 'genre_type' genre_name='action' %}">`
+              <div class="item p-5">
+                <img id="{{action|removespecial}}" src='' alt="No image">
+                <h5 class="card-title" id="1" style="font-weight: bold; font-size: 0;">{{action}}</h5>
               </div>
             </a>
-        </div>
-
-        <!-- <h1 id="{{action|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Top Rated</h1>
-          <div class="gallery" style="border: black solid;">
-          <a href="{% url 'genre_type' action %}">
-          <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
-                <p class="card-text">Runtime: {{movie.time}} mins</p>
-                <p class="card-text">Release date: {{movie.date}}</p>
-              </div>
-            </div>
-          </div>
-        </div></a></div>
-        <h1 id="{{action|length|add:1}}" align = center class="title display-4" style="font-weight: bold;">Top Rated</h1>
-          <div class="gallery" style="border: black solid;">
-          <a href="{% url 'genre_type' action %}">
-          <div class="card mb-3" style="max-width: 600px; height: 270px; background-color: rgb(75, 75, 75);" >
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img id="{{movie.name|removespecial}}" src='' class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
-                <p class="card-text">Runtime: {{movie.time}} mins</p>
-                <p class="card-text">Release date: {{movie.date}}</p>
-              </div>
-            </div>
-          </div>
-        </div></a></div> -->
-            
-      <!-- {% comment %} <div class="col-md-6 about-picture height-80"></div> {% endcomment %} -->
-
+        <!-- </h1> -->
+      </div>
       <!-- End of img column -->
 
       <!-- About text column -->
@@ -98,20 +39,295 @@
           <!-- Title -->
             <div class="row">
               <div class="col text-center">
-                <h1 class="display-4 text-uppercase text-dark mb-0">
-                  <strong>About</strong>
+                <h1 class="display-1 text-uppercase text-dark mb-0">
+                  <a href="{% url 'genre_type' genre_name='action' %}">
+                    <strong>Action</strong>
+                  </a>
                 </h1>
                 <div class="title-underline bg-warning"></div>
-                <p class="mt-2 text-capitalize text-muted">Lorem ipsum dolor sit.</p>
               </div>
             </div>
           <!-- End of Title -->
-
-          
-
         </div>
       </div>
       <!-- End of text column -->
+
+    </div>
+    <!-- End of row -->
+
+        <!-- Start of row -->
+        <div class="row">
+
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>adventure</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{adventure|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='adventure' %}">`
+                  <div class="item p-5">
+                    <img id="{{adventure|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="2" style="font-weight: bold; font-size: 0;">{{adventure}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+    
+          
+    
+        </div>
+        <!-- End of row -->
+
+
+        <!-- Start of row -->
+        <div class="row">
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{horror|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='horror' %}">`
+                  <div class="item p-5">
+                    <img id="{{horror|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="3" style="font-weight: bold; font-size: 0;">{{horror}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+    
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>horror</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+    
+        </div>
+        <!-- End of row -->
+
+    <!-- Start of row -->
+      <div class="row">
+
+      <!-- About text column -->
+      <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+        <!-- This is for centering -->
+        <div class="about-text-center">
+          <!-- Title -->
+            <div class="row">
+              <div class="col text-center">
+                <h1 class="display-1 text-uppercase text-dark mb-0">
+                  <strong>science fiction</strong>
+                </h1>
+                <div class="title-underline bg-warning"></div>
+              </div>
+            </div>
+          <!-- End of Title -->
+        </div>
+      </div>
+      <!-- End of text column -->
+
+      <!--Img column -->
+        <div class="col-md-6 height-70">
+          <!-- <h1 id="{{sciencefiction|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+            <a href="{% url 'genre_type' genre_name='scifi' %}">`
+                <div class="item p-5">
+                  <img id="{{scifi|removespecial}}" src='{{scifi}}' alt="No image">
+                  <h5 class="card-title" id="4" style="font-weight: bold; font-size: 0;">{{scifi}}</h5>
+                </div>
+              </a>
+          <!-- </h1> -->
+        </div>
+        <!-- End of img column -->
+
+        
+      </div>
+    <!-- End of row -->
+
+        
+
+        <!-- Start of row -->
+        <div class="row">
+
+          
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{comedy|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='comedy' %}">`
+                  <div class="item p-5">
+                    <img id="{{comedy|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="5" style="font-weight: bold; font-size: 0;">{{comedy}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>comedy</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+    
+          
+    
+        </div>
+        <!-- End of row -->
+
+        <!-- Start of row -->
+        <div class="row">
+    
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>romance</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{romance|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='romance' %}">`
+                  <div class="item p-5">
+                    <img id="{{romance|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="6" style="font-weight: bold; font-size: 0;">{{romance}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+    
+        </div>
+        <!-- End of row -->
+
+        <!-- Start of row -->
+        <div class="row">
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{thriller|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='thriller' %}">`
+                  <div class="item p-5">
+                    <img id="{{thriller|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="7" style="font-weight: bold; font-size: 0;">{{thriller}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>thriller</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+    
+          
+        </div>
+        <!-- End of row -->
+
+        <!-- Start of row -->
+        <div class="row">
+
+          <!-- About text column -->
+          <div class="col-md-6 about-text height-80 px-5 d-flex align-items-center justify-content-center">
+            <!-- This is for centering -->
+            <div class="about-text-center">
+              <!-- Title -->
+                <div class="row">
+                  <div class="col text-center">
+                    <h1 class="display-1 text-uppercase text-dark mb-0">
+                      <strong>crime</strong>
+                    </h1>
+                    <div class="title-underline bg-warning"></div>
+                  </div>
+                </div>
+              <!-- End of Title -->
+            </div>
+          </div>
+          <!-- End of text column -->
+
+          <!--Img column -->
+          <div class="col-md-6 height-70">
+            <!-- <h1 id="{{crime|length|add:1}}" class="title" style="text-decoration: black; margin: 0%; font-size: 0%;"> -->
+              <a href="{% url 'genre_type' genre_name='crime' %}">`
+                  <div class="item p-5">
+                    <img id="{{crime|removespecial}}" src='' alt="No image">
+                    <h5 class="card-title" id="8" style="font-weight: bold; font-size: 0;">{{crime}}</h5>
+                  </div>
+                </a>
+            <!-- </h1> -->
+          </div>
+          <!-- End of img column -->
+    
+        </div>
+        <!-- End of row -->
+    
+
+  </div>
+</section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'searchbase.js' %}"></script>
 
