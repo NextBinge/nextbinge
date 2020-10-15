@@ -129,3 +129,17 @@ def genre_view(request, genre_name):
     }
     return render(request, 'searchbase.html', context)
 
+def newmovie(request):
+    username = 'admin123'
+    password = 'admin123'
+    if request.method == 'POST':
+        print(request)
+        userinput = dict(request.POST.items())
+        print(userinput)
+        if userinput["username"] == username and userinput["password"] == password:
+            return render(request, 'add_movie.html')
+        else:
+            context = {
+                'most_popular_movies': sqlqueries.mostpopular(),  
+            }
+            return render(request, 'index.html', context)
