@@ -25,7 +25,10 @@
     padding: 2rem
 }
 
-
+a:hover {
+    text-decoration: none;
+    color: white;
+}
 
 .owl-carousel .item {
     margin: 0px;

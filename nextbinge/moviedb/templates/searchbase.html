@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
+            <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name|capfirst}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release date: {{movie.date}}</p>
           </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
+            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name|capfirst}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release date : {{movie.date}}</p>
           </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
+            <h5 class="card-title " id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name|capfirst}}</h5>
             <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release Date: {{movie.date}}</p>
           </div>
@@ -71,7 +71,7 @@
       {% endfor %}
   </ul>
   {% elif act_desc %}
-  <h1 id="{{act_desc|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name}}</h1>
+  <h1 id="{{act_desc|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name|capfirst}}</h1>
   <ul>
     {% for actor in act_desc %}
     <div class="gallery" style="border: black solid;">
@@ -83,7 +83,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{actor.mname}}</h5>
+          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{actor.mname|capfirst}}</h5>
           <p class="card-text">Runtime: {{actor.time}} mins</p>
             <p class="card-text">Release date: {{actor.date}}</p>
         </div>
@@ -94,7 +94,7 @@
 </ul>
 
 {% elif genre_movie_detail %}
-  <h1 id="{{genre_movie_detail|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name}}</h1>
+  <h1 id="{{genre_movie_detail|length|add:1}}" class="title display-4" style="font-weight: bold;" align=center>{{name|capfirst}}</h1>
   <ul>
     {% for movie in genre_movie_detail %}
     <div class="gallery" style="border: black solid;">
@@ -106,7 +106,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name}}</h5>
+          <h5 class="card-title" id="{{forloop.counter}}" style="font-weight: bold; font-size: x-large;">{{movie.name|capfirst}}</h5>
           <p class="card-text">Runtime: {{movie.time}} mins</p>
             <p class="card-text">Release date: {{movie.date}}</p>
         </div>
