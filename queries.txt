@@ -111,3 +111,17 @@ natural join movie as m
 natural join actor as a
 natural join details as d
 where a.name="chris evans";
+
+SEARCH MAX MOVIE ID:
+
+select MAX(movie.id) from movie;
+
+search id:
+
+select actor_id from actor where name=%s;
+select director_id from director where name=%s;
+select production_id from production_house where name=%s;
+
+insert into cast:
+
+insert into cast values (%s,%s)
