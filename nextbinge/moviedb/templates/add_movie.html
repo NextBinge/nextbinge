@@ -44,6 +44,7 @@ li.two-tabs {
   
           <div id="add" class="tab-pane fade pt-3 show active">
             <form action="POST">
+              <input type="hidden" name="type" value="add">
               <div class="form-group">
                 <label>Movie Name</label>
                 <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Movie Name...." name="moviename">
@@ -131,6 +132,7 @@ li.two-tabs {
           </div>
           <div id="delete" class="tab-pane fade pt-3">
             <form action="POST">
+              <input type="hidden" name="type" value="delete">
               <div class="form-group">
                 <label>Movie Name</label>
                 <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Movie Name...." name="moviename">
