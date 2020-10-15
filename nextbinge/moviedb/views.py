@@ -7,6 +7,9 @@ import random
 
 recom = []
 
+def login_view(request):
+    return render(request, "login.html")
+
 # Create your views here.
 def toprated_view(request):
     context = {'top_rated_movies': sqlqueries.toprated()}

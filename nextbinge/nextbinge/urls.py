@@ -29,6 +29,7 @@ urlpatterns = [
     path('genre/<genre_name>/', views.genre_view, name='genre_type'),
     path('recommend/', views.recommend, name='recommend'),
     path('recommend/result', views.result, name='result'),
+    path('login/', views.login_view, name='login'),
     path('getresult/', views.getresult, name='getresult'),
 ]
 
