@@ -8,6 +8,9 @@ import mysql.connector, ast, csv, itertools, datetime
 
 recom = []
 
+def login_view(request):
+    return render(request, "login.html")
+
 # Create your views here.
 def toprated_view(request):
     context = {'top_rated_movies': sqlqueries.toprated()}
@@ -188,3 +191,17 @@ def genre_view(request, genre_name):
     }
     return render(request, 'searchbase.html', context)
 
+def newmovie(request):
+    username = 'admin123'
+    password = 'admin123'
+    if request.method == 'POST':
+        print(request)
+        userinput = dict(request.POST.items())
+        print(userinput)
+        if userinput["username"] == username and userinput["password"] == password:
+            return render(request, 'add_movie.html')
+        else:
+            context = {
+                'most_popular_movies': sqlqueries.mostpopular(),  
+            }
+            return render(request, 'index.html', context)
