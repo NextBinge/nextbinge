@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -26,7 +28,21 @@
                       <label for="exampleInputPassword1">Password</label>
                       <input type="password" class="form-control w-50" id="exampleInputPassword1" placeholder="Password" name="password">
                     </div>
+
                     
+
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio"><i class="fa fa-plus-square" aria-hidden="true"></i> Add movie
+                        </label>
+                      </div>
+
+                    <div class="form-check-inline">
+                    <label class="form-check-label">   
+                        <input type="radio" class="form-check-input" name="optradio">
+                        <i class="fa fa-trash" aria-hidden="true"></i> Delete a movie
+                    </label>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
               </div>
