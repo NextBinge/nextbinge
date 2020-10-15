@@ -31,5 +31,6 @@ urlpatterns = [
     path('recommend/result', views.result, name='result'),
     path('login/', views.login_view, name='login'),
     path('getresult/', views.getresult, name='getresult'),
+    path('newmovie/', views.newmovie, name='newmovie'),
 ]
 
