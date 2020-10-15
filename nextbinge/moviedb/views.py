@@ -4,7 +4,7 @@ from . import poster
 from django.http import HttpResponse, JsonResponse
 import json
 import random
-import mysql.connector, ast, csv, itertools, datetime
+import ast, csv, itertools, datetime
 
 recom = []
 
@@ -18,66 +18,60 @@ def toprated_view(request):
 
 def index(request):
     if request.method == 'POST':
-        actoridset=[]
-        directoridset=[]
-        prodidset=[]
-        character_name=[]
-        castvalues=[]
-        movievalues=[]
-        genre_arr=[]
-        character=[]
-        charactervalues=[]
-        detailsvalues=[]
-
-        genre = ','
         userinput = dict(request.POST.items())
-        genre_arr=userinput['genres']
-        character_name=userinput['charactername']
-        movie_name=userinput['moviename']
-        movie_max=int((sqlqueries.max_movie()))+1
-        cast_max=int((sqlqueries.max_cast()))
-        
-        genre=genre.join(genre_arr)
-        
-        for name in userinput['actorname']:
-            actoridset.append(sqlqueries.actor_id_retrieve())
-        for name in userinput['directorname']:
-            directoridset.append(sqlqueries.actor_id_retrieve())
-        for name in userinput['productionhouse']:
-            prodidset.append(sqlqueries.actor_id_retrieve())
+        print(userinput)
+        if userinput["type"] == "delete":
+            id=sqlqueries.getid(userinput['moviename'])
+            sqlqueries.delete_movie_id_char(id)
+            sqlqueries.delete_movie_id_details(id)
+            sqlqueries.delete_movie_id(id)
+            # print(id)
+        else:
+            actoridset=[]
+            character_name=[]
+            castvalues=[]
+            movievalues=[]
+            charactervalues=[]
+            detailsvalues=[]
 
-        for combo in itertools.product(actoridset, directoridset, prodidset):
-            cast_max+=1
-            castvalues.append((cast_max, *combo))
-            movievalues.append((movie_max, cast_max, movie_name))
-        
-        detailsvalues.append(movie_max)
-        detailsvalues.append(genre)
-        detailsvalues.append(userinput['description'])
-        detailsvalues.append(userinput['runtime'])
-        detailsvalues.append(userinput['releasedate'])
-        detailsvalues.append(userinput['popularity'])
-        detailsvalues.append(userinput['rating'])
-        detailsvalues.append('100')
+            genre_arr=userinput['genres']
+            character_name=userinput['charactername'].split(",")
+            actor_name=userinput['actorname'].split(",")
+            movie_name=userinput['moviename']
+            movie_max=int((sqlqueries.max_movie()))+1
+            cast_max=int((sqlqueries.max_cast()))
 
-        # sqlqueries.insert_into_details(detailsvalues)
-        # sqlqueries.insert_into_cast(castvalues)
-        # sqlqueries.insert_into_movie(movievalues)
+            for name in actor_name:
+                actoridset.append(sqlqueries.actor_id_retrieve(name))
+            directoridset = sqlqueries.director_id_retrieve(userinput["directorname"])
+            prodidset = sqlqueries.production_id_retrieve(userinput["productionhouse"])
 
-        for i in range(len(actoridset)):
-            charactervalues.append((movie_max,actoridset[i],character_name[i]))
+            for i in range(len(actoridset)):
+                cast_max+=1
+                castvalues.append((cast_max,actoridset[i], directoridset, prodidset))
+                movievalues.append((movie_max, cast_max, movie_name))
+            
+            detailsvalues.append(movie_max)
+            detailsvalues.append(userinput['genres'])
+            detailsvalues.append(userinput['description'])
+            detailsvalues.append(userinput['runtime'])
+            detailsvalues.append(userinput['releasedate'])
+            detailsvalues.append(userinput['popularity'])
+            detailsvalues.append(userinput['rating'])
+            detailsvalues.append('100')
 
-        # sqlqueries.insert_into_character(charactervalues)
-        # id=sqlqueries.getid(userinput['moviename'])
-        # sqlqueries.delete_movie_id_char(id)
-        # sqlqueries.delete_movie_id_cast(id)
-        # sqlqueries.delete_movie_id_details(id)
-        # sqlqueries.delete_movie_id(id)
+            sqlqueries.insert_into_cast(castvalues)
+            sqlqueries.insert_into_movie(movievalues)
+            sqlqueries.insert_into_details(detailsvalues)
 
-        print(castvalues)
-        print(movievalues)
-        print(detailsvalues)
-        print(charactervalues)
+            for i in range(len(actoridset)):
+                charactervalues.append((movie_max,actoridset[i],character_name[i]))
+
+            sqlqueries.insert_into_character(charactervalues)
+            # print(castvalues)
+            # print(movievalues)
+            # print(detailsvalues)
+            # print(charactervalues)
     context = {
         'most_popular_movies': sqlqueries.mostpopular(),  
     }

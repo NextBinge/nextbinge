@@ -43,7 +43,8 @@ li.two-tabs {
         <div class="tab-content">
   
           <div id="add" class="tab-pane fade pt-3 show active">
-            <form action="POST">
+            <form id="addform" action="{% url 'index' %}" method="POST">
+              {% csrf_token %}
               <input type="hidden" name="type" value="add">
               <div class="form-group">
                 <label>Movie Name</label>
@@ -131,7 +132,8 @@ li.two-tabs {
             </form>
           </div>
           <div id="delete" class="tab-pane fade pt-3">
-            <form action="POST">
+            <form action="{% url 'index' %}" method="POST">
+              {% csrf_token %}
               <input type="hidden" name="type" value="delete">
               <div class="form-group">
                 <label>Movie Name</label>
@@ -167,6 +169,41 @@ li.two-tabs {
         $('#addmore1').on('click', function() {
                 var data = $("#genre").clone(true).insertAfter("#genre");
                 // data.find("input").val('');
+        });
+        $("#addform").submit(function(){
+          var result = "";
+          var actorinput = document.getElementsByName("actorname");
+          for(var i = 0; i < actorinput.length; i++) {
+            if(i == actorinput.length - 1)
+              result = result + actorinput[i].value;
+            else
+              result = result + actorinput[i].value + ",";
+          }
+          for(var i = 0; i < actorinput.length; i++) {
+            actorinput[i].value = result;
+          }
+          result = "";
+          var characterinput = document.getElementsByName("charactername");
+          for(var i = 0; i < characterinput.length; i++) {
+            if(i == characterinput.length - 1)
+              result = result + characterinput[i].value;
+            else
+              result = result + characterinput[i].value + ",";
+          }
+          for(var i = 0; i < characterinput.length; i++) {
+            characterinput[i].value = result;
+          }
+          result = "";
+          var genresinput = document.getElementsByName("genres");
+          for(var i = 0; i < genresinput.length; i++) {
+            if(i == genresinput.length - 1)
+              result = result + genresinput[i].value;
+            else
+              result = result + genresinput[i].value + ",";
+          }
+          for(var i = 0; i < genresinput.length; i++) {
+            genresinput[i].value = result;
+          }
         });
     </script>
   </body>

@@ -168,19 +168,19 @@ def genre_detail(gen_name):
 
 def actor_id_retrieve(name):
     with connection.cursor() as cursor:
-        cursor.execute('''select actor_id from actor where name=%s''',name)
+        cursor.execute('''select actor_id from actor where name=%s''',[name])
         res = cursor.fetchall()[0][0]
         return res
 
 def director_id_retrieve(name):
     with connection.cursor() as cursor:
-        cursor.execute('''select director_id from director where name=%s''',name)
+        cursor.execute('''select director_id from director where name=%s''',[name])
         res = cursor.fetchall()[0][0]
         return res
 
 def production_id_retrieve(name):
     with connection.cursor() as cursor:
-        cursor.execute('''select production_id from production_house where name=%s''',name)
+        cursor.execute('''select production_id from production_house where name=%s''',[name])
         res = cursor.fetchall()[0][0]
         return res
 
@@ -198,7 +198,7 @@ def max_cast():
 
 def insert_into_cast(castvalues):
     with connection.cursor() as cursor:
-        cursor.executemany('''insert into cast values (%s,%s)''',castvalues)
+        cursor.executemany('''insert into cast values (%s,%s,%s,%s)''',castvalues)
 
 def insert_into_movie(movievalues):
     with connection.cursor() as cursor:
@@ -206,27 +206,23 @@ def insert_into_movie(movievalues):
 
 def insert_into_details(detailsvalues):
     with connection.cursor() as cursor:
-        cursor.execute('''insert into details values (%s,%s,%s,%s,%s,%s,%s,%s)''',detailsvalues[0],detailsvalues[1],detailsvalues[2],detailsvalues[3],detailsvalues[4],detailsvalues[5],detailsvalues[6],detailsvalues[7])
+        cursor.execute('''insert into details values (%s,%s,%s,%s,%s,%s,%s,%s)''',(detailsvalues[0],str(detailsvalues[1]),detailsvalues[2],detailsvalues[3],detailsvalues[4],detailsvalues[5],detailsvalues[6],detailsvalues[7]))
 
 def insert_into_character(charactervalues):
     with connection.cursor() as cursor:
         cursor.executemany('''insert into movie_character values (%s,%s,%s)''',charactervalues)
 
-def delete_movie_id_char():
+def delete_movie_id_char(movieid):
     with connection.cursor() as cursor:
-        cursor.executemany('''delete from movie_character where movie_id=%s''',[])
-
-def delete_movie_id_cast():
-    with connection.cursor() as cursor:
-        cursor.executemany('''delete from cast where movie_id=%s''',[])
+        cursor.execute('''delete from movie_character where movie_id=%s''',[movieid])
     
-def delete_movie_id_details():
+def delete_movie_id_details(movieid):
     with connection.cursor() as cursor:
-        cursor.executemany('''delete from details where movie_id=%s''',[])
+        cursor.execute('''delete from details where movie_id=%s''',[movieid])
 
-def delete_movie_id():
+def delete_movie_id(movieid):
     with connection.cursor() as cursor:
-        cursor.executemany('''delete from movie where movie_id=%s''',[])
+        cursor.execute('''delete from movie where movie_id=%s''',[movieid])
 
 
 
