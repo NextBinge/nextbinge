@@ -17,29 +17,42 @@
           <div class="col-2"></div>
             <div class="col-8">
                 <h1 class="display-1 text-capitalize pb-3">Add movie</h1>
-              <form action="POST">
+              <form action="index.html" method="POST">
                   <div class="form-group">
                     <label>Movie Name</label>
                     <input type="text" class="form-control w-100" placeholder="Enter Movie Name...." name="moviename">
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                   </div>
                   <div class="row">
-                      <div class="col-6">
+                    <div class="col-6">
+                      <label>Actor Name</label>
+                    </div>
+                    <div class="col-6">
+                      <label>Character Name</label>
+                    </div>
+                  </div>
+                  <div class="row" id = "actorcharacter">
+                      <div class="col-6" id="actor">
                         <div class="form-group">
-                            <label>Actor Name</label>
+                            <!-- <label>Actor Name</label> -->
                             <input type="text" class="form-control w-100" placeholder="Enter Actor Name...." name="actorname">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                           </div>
                       </div>
-                      <div class="col-6">
-                        <div class="form-group">
-                            <label>Character Name</label>
+                      <div class="col-6" id="character">
+                        <div class="form-group ">
+                            <!-- <label>Character Name</label> -->
                             <input type="text" class="form-control w-100" placeholder="Enter Character Name...." name="charactername">
+                            
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                           </div>
                       </div>
                     </div>
-
+                    
+                    
+                    <button id = "addmore" type="button" class="btn btn-default">
+                      Add More
+                    </button>
                     <div class="form-group">
                         <label>Director Name</label>
                         <input type="text" class="form-control w-100" placeholder="Enter Director Name...." name="directorname">
@@ -52,12 +65,15 @@
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
 
-                    <div class="form-group">
-                        <label>Genres</label>
-                        <input type="text" class="form-control w-100" placeholder="Enter Genres...." name="genres">
+                    <label>Genres</label>
+                    <div class="form-group" id = "genre">
+                        <input type="text" class="form-control w-100" placeholder="Enter Genre...." name="genres">
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
 
+                    <button id = "addmore1" type="button" class="btn btn-default">
+                      Add More
+                    </button>
                     <div class="form-group">
                         <label>Popularity</label>
                         <input type="text" class="form-control w-100" placeholder="Enter Popularity Rating...." name="popularity">
@@ -101,5 +117,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+          $('#addmore').on('click', function() {
+                var data = $("#actor").clone(true).appendTo("#actorcharacter");
+                // data.find("input").val('');
+        });
+        $('#addmore').on('click', function() {
+                var data = $("#character").clone(true).appendTo("#actorcharacter");
+                // data.find("input").val('');
+        });
+        $('#addmore1').on('click', function() {
+                var data = $("#genre").clone(true).insertAfter("#genre");
+                // data.find("input").val('');
+        });
+    </script>
   </body>
 </html>
