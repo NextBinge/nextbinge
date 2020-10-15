@@ -12,130 +12,142 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body class="text-white bg-dark">
+
+  <style>
+li.two-tabs {
+    text-decoration: none !important;
+    transition: 0.2s ease-in-out;
+    /* font-size: 150%; */
+    color: white;
+    /* font-weight: bold; */
+    font-size: 1.2em;
+
+}
+  </style>
+  <body class="text-white" style="background-color: black;">
     
+    
+    <!-- Container -->
     <div class="container">
-    <div class="row justify-content-center" style="height: 100vh;">
-      <div class="col-2"></div>
-        <div class="col-8">
-            <h1 class="display-1 text-capitalize pb-3">Edit Movies</h1>
-      <!-- <h2>Dynamic Tabs</h2>
-      <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p> -->
-  
-      <ul class="nav nav-tabs">
-        <li class="active px-3"><a data-toggle="tab" href="#add">Add</a></li>
-        <li class="px-3 "><a data-toggle="tab" href="#delete">Delete</a></li>
+      <div class="row justify-content-center" style="height: 100vh;">
+        <div class="col-2"></div>
+          <div class="col-8">
+              <h1 class="display-1 text-capitalize pb-3">Edit Movies</h1>
         
-      </ul>
     
-      <div class="tab-content">
-
-        <div id="add" class="tab-pane fade in active pt-3">
-          <form action="POST">
-            <div class="form-group">
-              <label>Movie Name</label>
-              <input type="text" class="form-control w-100" placeholder="Enter Movie Name...." name="moviename">
-              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-            </div>
-            
-            <div class="row">
-              <div class="col-6">
-                <label>Actor Name</label>
-              </div>
-              <div class="col-6">
-                <label>Character Name</label>
-              </div>
-            </div>
-            <div class="row" id="actorcharacter">
-                <div class="col-6" id = "actor">
-                  <div class="form-group">
-                      <input type="text" class="form-control w-100" placeholder="Enter Actor Name...." name="actorname">
-                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    </div>
-                </div>
-                <div class="col-6" id = "character">
-                  <div class="form-group">
-                      <input type="text" class="form-control w-100" placeholder="Enter Character Name...." name="charactername">
-                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    </div>
-                </div>
-              </div>
-              
-      <button id = "addmore" type="button" class="btn btn-default">
-        Add More
-      </button>
-              <div class="form-group">
-                  <label>Director Name</label>
-                  <input type="text" class="form-control w-100" placeholder="Enter Director Name...." name="directorname">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-              
-              <div class="form-group">
-                  <label>Production House</label>
-                  <input type="text" class="form-control w-100" placeholder="Enter Production House...." name="productionhouse">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-
-              <label>Genres</label>
-              <div class="form-group" id = "genre">
-                  <input type="text" class="form-control w-100" placeholder="Enter Genre...." name="genres">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-
-              <button id = "addmore1" type="button" class="btn btn-default">
-                Add More
-              </button>
-
-              <div class="form-group">
-                  <label>Popularity</label>
-                  <input type="text" class="form-control w-100" placeholder="Enter Popularity Rating...." name="popularity">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-
-              <div class="form-group">
-                  <label>Rating</label>
-                  <input type="text" class="form-control w-100" placeholder="Enter Rating...." name="rating">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-
-              <div class="form-group">
-                  <label>Runtime</label>
-                  <input type="text" class="form-control w-100" placeholder="Enter Runtime...." name="runtime">
-                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-              </div>
-
-              <div class="form-group">
-                  <label for="">Release date:</label>
-                  <input type="date" class="form-control w-100"  name="releasedate">
-              </div>
-              
-              <div class="form-group">
-                  <label for="comment">Description:</label>
-                  <textarea class="form-control" rows="5" name="description"></textarea>
-                </div>
-
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-          </form>
-        </div>
-        <div id="delete" class="tab-pane fade pt-3">
-          <form action="POST">
-            <div class="form-group">
-              <label>Movie Name</label>
-              <input type="text" class="form-control w-100" placeholder="Enter Movie Name...." name="moviename">
-              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-            </div>
-          </form>
-        </div>
-      </div>
-      </div>
-        </div>
-          <div class="col-2"></div>
-
-        </div>
+        <ul class="nav nav-tabs">
+          <li class="px-3 active two-tabs"><a data-toggle="tab" href="#add" style="color: inherit;">Add</a></li>
+          <li class="px-3 two-tabs"><a data-toggle="tab" href="#delete" style="color: inherit;">Delete</a></li>
+        </ul>
       
+        <div class="tab-content">
+  
+          <div id="add" class="tab-pane fade pt-3 show active">
+            <form action="POST">
+              <div class="form-group">
+                <label>Movie Name</label>
+                <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Movie Name...." name="moviename">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              
+              <div class="row">
+                <div class="col-6">
+                  <label>Actor Name</label>
+                </div>
+                <div class="col-6">
+                  <label>Character Name</label>
+                </div>
+              </div>
+              <div class="row" id="actorcharacter">
+                  <div class="col-6" id = "actor">
+                    <div class="form-group">
+                        <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Actor Name...." name="actorname">
+                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                      </div>
+                  </div>
+                  <div class="col-6" id = "character">
+                    <div class="form-group">
+                        <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Character Name...." name="charactername">
+                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                      </div>
+                  </div>
+                </div>
+                
+                <button id = "addmore" type="button" class="btn btn-default btn-outline-danger mb-3">
+                  Add More
+                </button>
+                <div class="form-group">
+                    <label>Director Name</label>
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Director Name...." name="directorname">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                
+                <div class="form-group">
+                    <label>Production House</label>
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Production House...." name="productionhouse">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+  
+                <label>Genres</label>
+                <div class="form-group" id = "genre">
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Genre...." name="genres">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+  
+                <button id = "addmore1" type="button" class="btn btn-default btn-outline-danger mb-3">
+                  Add More
+                </button>
+  
+                <div class="form-group">
+                    <label>Popularity</label>
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Popularity Rating...." name="popularity">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+  
+                <div class="form-group">
+                    <label>Rating</label>
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Rating...." name="rating">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+  
+                <div class="form-group">
+                    <label>Runtime</label>
+                    <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Runtime...." name="runtime">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+  
+                <div class="form-group">
+                    <label for="">Release date:</label>
+                    <input type="date" class="form-control w-100 bg-dark text-white"  name="releasedate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea class="form-control bg-dark text-white" rows="5" name="description"></textarea>
+                  </div>
+  
+              <button type="submit" class="btn btn-primary btn-block mb-5">Submit</button>
+            </form>
+          </div>
+          <div id="delete" class="tab-pane fade pt-3">
+            <form action="POST">
+              <div class="form-group">
+                <label>Movie Name</label>
+                <input type="text" class="form-control w-100 bg-dark text-white" placeholder="Enter Movie Name...." name="moviename">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+            </form>
+          </div>
+        </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+            
   
     </div>
-      
+    <!-- End of Container -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -11,46 +11,33 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="text-white" style="background-color: black;">
       <div class="container">
-          <div class="row justify-content-center" style="height: 100vh;">
+          <div class="row d-flex justify-content-center pt-5" style="height: 100vh;">
             <div class="col-2"></div>
               <div class="col-8">
                   <h1 class="display-1">Admin Login</h1>
                 <form action="{% url 'newmovie' %}" method="POST">
+
                   {% csrf_token %}
+
                     <div class="form-group">
                       <label>Username</label>
                       <input type="text" class="form-control w-50" placeholder="Enter Username" name="username">
                       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
+
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
                       <input type="password" class="form-control w-50" id="exampleInputPassword1" placeholder="Password" name="password">
                     </div>
 
-                    
-
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="optradio"><i class="fa fa-plus-square" aria-hidden="true"></i> Add movie
-                        </label>
-                      </div>
-
-                    <div class="form-check-inline">
-                    <label class="form-check-label">   
-                        <input type="radio" class="form-check-input" name="optradio">
-                        <i class="fa fa-trash" aria-hidden="true"></i> Delete a movie
-                    </label>
-                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+
+                </form>
               </div>
             <div class="col-2"></div>
-
           </div>
-        
-    
       </div>
     
     <!-- Optional JavaScript -->
