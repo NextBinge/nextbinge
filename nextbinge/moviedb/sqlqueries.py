@@ -9,11 +9,14 @@ def getname(id):
         return res
 
 def getid(name):
-    with connection.cursor() as cursor:
-        cursor.execute('''select distinct(movie_id) from movie
-                        where movie.movie_name = %s''', [name])
-        res = cursor.fetchall()[0][0]
-        return res
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('''select distinct(movie_id) from movie
+                            where movie.movie_name = %s''', [name])
+            res = cursor.fetchall()[0][0]
+            return res
+    except:
+        return 0
 
 def getnameactor(id):
     with connection.cursor() as cursor:

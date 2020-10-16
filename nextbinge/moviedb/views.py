@@ -73,7 +73,8 @@ def index(request):
             # print(detailsvalues)
             # print(charactervalues)
     context = {
-        'most_popular_movies': sqlqueries.mostpopular(),  
+        'most_popular_movies': sqlqueries.mostpopular(),
+        'wrong':0,  
     }
     return render(request, 'index.html', context)
 
@@ -118,12 +119,21 @@ def search(request):
     if request.method == 'POST':
         searchdict = dict(request.POST.items())
         if(searchdict["searchvalue"] == ""):
-            return render(request, 'index.html')
+            context={'wrong': 1,
+                'most_popular_movies': sqlqueries.mostpopular(),
+            } #toast movie not available
+            return render(request, 'index.html', context)
         else:
             searchvalue = searchdict["searchvalue"]
             movieid = sqlqueries.getid(searchvalue)
-            context = {'movieid': movieid}
-            return render(request, "buffer.html", context)
+            if(movieid != 0):
+                context = {'movieid': movieid}
+                return render(request, "buffer.html", context)
+            else:
+                context={'wrong': 1,
+                    'most_popular_movies': sqlqueries.mostpopular(),
+                } #toast movie not available
+                return render(request, 'index.html', context)
     else:
         return render(request, 'index.html')
 

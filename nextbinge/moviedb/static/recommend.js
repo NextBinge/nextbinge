@@ -11,6 +11,17 @@ function makeToast() {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 
+  function makeToast1() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar1");
+  
+    // Add the "show" class to DIV
+    x.className = "show";
+  
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
 $(document).ready(() => {
     $("#add").on("click", () => {
         var film = $("#searchbox").val();
@@ -32,7 +43,12 @@ $(document).ready(() => {
                         document.getElementById("search").disabled = true;
                     }
                 } else {
-                    makeToast();
+                    if(!movies.includes(film)){
+                        makeToast1();
+                    }
+                    else{
+                        makeToast();
+                    } 
                 }
             });
         }
