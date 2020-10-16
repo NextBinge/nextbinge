@@ -43,7 +43,7 @@ $(document).ready(() => {
                         document.getElementById("search").disabled = true;
                     }
                 } else {
-                    if(!movies.includes(film)){
+                    if(movies.includes(film)){
                         makeToast1();
                     }
                     else{
